@@ -43,7 +43,7 @@ export default function Home() {
                     <div className="flex flex-wrap gap-4">
                       <Link
                         href="/about"
-                        className="inline-flex items-center gap-2 rounded-md border border-black px-6 py-3 font-semibold transition hover:bg-black hover:text-white"
+                        className="inline-flex items-center gap-2 rounded-md border border-[#001313] px-6 py-3 font-semibold transition hover:bg-[#027b7a]/80 hover:text-white"
                       >
                         Learn More
                         <i className="fa-regular fa-arrow-right"></i>
@@ -51,7 +51,6 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-
                 {/* ===== Right Spacer / Decorations ===== */}
                 <div className="hidden lg:block lg:col-span-2">
                   {/* Decorative images can live here */}
@@ -201,13 +200,40 @@ export default function Home() {
               ].map((service, index) => (
                 <div key={index} className="relative shrink-0 w-80 h-80 rounded-none overflow-hidden shadow-md group cursor-pointer mr-6">
                   <Image src={service.img} alt={service.title} className="w-full h-full object-cover"/>
-                  <div className="absolute bottom-0 left-0 right-0 mx-4 bg-white bg-opacity-60 flex flex-col justify-center items-center transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 px-4 py-6 text-center rounded-none">
-                    <service.icon className="w-6 h-6 text-black mb-2"/>
-                    <h3 className="text-lg font-semibold text-black mb-1">{service.title}</h3>
-                    <p className="text-gray-900 text-sm">{service.desc}</p>
-                    <a href="#" className="text-[#060707] font-medium inline-flex items-center mt-2">
-                      Read More <i className="fa-regular fa-arrow-right ml-1"></i>
-                    </a>
+                  <div
+                    className="absolute bottom-0 left-0 right-0 mx-4 bg-white bg-opacity-90
+                    transition-all duration-500 my-5
+                    h-20 group-hover:h-48
+                    overflow-hidden flex flex-col items-center justify-center px-4"
+                  >
+                    {/* Top row: icon + title (always visible) */}
+                    <div className="flex items-center justify-center gap-3">
+                      <service.icon className="lg:w-9 lg:h-9 w-6 h-6 text-[#0a3b3f] shrink-0" />
+
+                      <h3 className="lg:text-[22px] md:text-[20px] text-[19px] font-semibold text-black pro1 text-center">
+                        {service.title}
+                      </h3>
+                    </div>
+
+                    {/* Hover-only content */}
+                    <div
+                      className="mt-3 text-center
+                      max-h-0 opacity-0
+                      group-hover:max-h-40 group-hover:opacity-100
+                      transition-all duration-300"
+                    >
+                      <p className="text-gray-700 text-sm mb-3">
+                        {service.desc}
+                      </p>
+
+                      <a
+                        href="#"
+                        className="text-[#0a3b3f] font-medium inline-flex items-center"
+                      >
+                        Read More
+                        <i className="fa-regular fa-arrow-right ml-1"></i>
+                      </a>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -221,14 +247,44 @@ export default function Home() {
               ].map((service, index) => (
                 <div key={`dup-${index}`} className="relative shrink-0 w-80 h-80 rounded-none overflow-hidden shadow-md group cursor-pointer mr-6">
                   <Image src={service.img} alt={service.title} className="w-full h-full object-cover"/>
-                  <div className="absolute bottom-0 left-0 right-0 mx-4 bg-white bg-opacity-60 flex flex-col justify-center items-center transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 px-4 py-6 text-center rounded-none">
-                    <service.icon className="w-6 h-6 text-black mb-2"/>
-                    <h3 className="text-lg font-semibold text-black mb-1">{service.title}</h3>
-                    <p className="text-gray-900 text-sm">{service.desc}</p>
-                    <a href="#" className="text-[#1a1b1d] font-medium inline-flex items-center mt-2">
-                      Read More <i className="fa-regular fa-arrow-right ml-1"></i>
-                    </a>
+                  <div
+                    className="absolute bottom-0 left-0 right-0 mx-4 bg-white bg-opacity-90
+                    transition-all duration-500
+                    h-20 group-hover:h-48
+                    overflow-hidden flex my-5 flex-col items-center justify-center px-4"
+                  >
+                    {/* Top row: icon + title (always visible) */}
+                    <div className="flex items-center justify-center gap-3">
+                      <service.icon className="lg:w-9 lg:h-9 w-6 h-6 text-[#0a3b3f] shrink-0" />
+
+                      <h3 className="lg:text-[22px] md:text-[20px] text-[19px] font-semibold text-black pro1 text-center">
+                        {service.title}
+                      </h3>
+                    </div>
+
+                    {/* Hover-only content */}
+                    <div
+                      className="mt-3 text-center
+                      max-h-0 opacity-0
+                      group-hover:max-h-40 group-hover:opacity-100
+                      transition-all duration-300"
+                    >
+                      <p className="text-gray-700 text-sm mb-3">
+                        {service.desc}
+                      </p>
+
+                      <a
+                        href="#"
+                        className="text-[#0a3b3f] font-medium inline-flex items-center"
+                      >
+                        Read More
+                        <i className="fa-regular fa-arrow-right ml-1"></i>
+                      </a>
+                    </div>
                   </div>
+
+
+
                 </div>
               ))}
 
