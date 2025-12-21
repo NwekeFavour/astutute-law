@@ -16,10 +16,10 @@ export default function ContactPage() {
                 <ContactSection/>
             </div>
             <div className="bg-[#027b7a] py-10">
-                <div className="w-[40%] mx-auto">
+                <div className="sm:w-[40%] w-[70%] mx-auto">
                     <p className="m-0 lg:text-[40px] md:text-[38px] sm:text-[28px] text-[27px] text-white text-center pro1">Ready to Fight for Your Rights?</p>
                 </div>
-                <div className="w-[40%] mt-4 mx-auto">
+                <div className="sm:w-[40%] w-[60%] mt-4 mx-auto">
                     <p className="m-0 text-white text-center">With years of experience, we've successfully defended countless clients, To be securing their rights and helping them navigate the legal system.</p>
                 </div>
                  <a

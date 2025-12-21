@@ -7,7 +7,7 @@ export default function Footer() {
     return (
         <div>
             <footer className="bg-white text-gray-900 pt-16">
-                <div className="max-w-7xl mx-auto px-20">
+                <div className="max-w-7xl mx-auto px-10 md:px-20">
                     {/* Top section */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 pb-12">
                     
@@ -117,24 +117,23 @@ export default function Footer() {
                         <ul className="space-y-4 text-sm">
                         <li className="flex items-center gap-3">
                             <MailIcon className="fa-solid fa-envelope mt-1 w-5 h-5 text-neutral-700" />
-                            <Link href="mailto:demolawsy@gmail.com" className="hover:text-teal-400 transition">
-                            demolawsy@gmail.com
+                            <Link href="mailto:taiwoade-lawal@astutelawoffice.com" className="hover:text-teal-400 transition">
+                            taiwoade-lawal@astutelawoffice.com
                             </Link>
                         </li>
 
                         <li className="flex items-start gap-3">
                             <MapPin className="fa-solid fa-map-marker-alt mt-1 w-5 h-5 text-neutral-700" />
                             <span>
-                            8708 Technology Forest <br />
-                            Pl Suite 125-G, The <br />
-                            Woodlands, TX 77381
+                             301-231 Oak Park Blvd, <br />
+                             Oakville, ON L6H 7S8 <br />
                             </span>
                         </li>
 
                         <li className="flex items-center gap-3">
                             <Phone className="fa-solid fa-phone mt-1 w-5 h-5 text-neutral-700" />
-                            <Link href="tel:123-456-7890" className="hover:text-teal-400 transition">
-                            123-456-7890
+                            <Link href="tel:9025806770" className="hover:text-teal-400 transition">
+                            902 580 6770
                             </Link>
                         </li>
                         </ul>

@@ -4,11 +4,11 @@ import { Phone, Mail, Clock } from "lucide-react";
 export default function ContactSection() {
   return (
     <section className="bg-[#f6f3ee] py-16">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 bg-[#f6f3ee]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 items-center lg:grid-cols-3 gap-8 bg-[#f6f3ee]">
           
           {/* LEFT: FORM */}
-          <div className="lg:col-span-2 bg-[#f6f3ee] p-8 rounded-md">
+          <div className="lg:col-span-2 bg-[#f6f3ee] p-4 sm:p-8 rounded-md">
             <h2 className="text-2xl font-semibold mb-2">
               Send Us A Message
             </h2>
@@ -78,8 +78,8 @@ export default function ContactSection() {
               <div>
                 <h4 className="font-semibold mb-1">Contact Us</h4>
                 <p className="text-sm text-gray-600">
-                  8708 Technology Forest Pl Suite 125 - G,
-                  The Woodlands, TX 77381
+                  301-231 Oak Park Blvd, <br />
+                  Oakville, ON L6H 7S8 
                 </p>
               </div>
             </div>
@@ -89,7 +89,7 @@ export default function ContactSection() {
               <Phone className="w-6 h-6 text-black" />
               <div>
                 <h4 className="font-semibold mb-1">Call or text</h4>
-                <p className="text-sm text-gray-600">123-456-7890</p>
+                <p className="text-sm text-gray-600">902 5806 770</p>
               </div>
             </div>
 
@@ -98,7 +98,7 @@ export default function ContactSection() {
               <Mail className="w-6 h-6 text-black" />
               <div>
                 <h4 className="font-semibold mb-1">Email us today</h4>
-                <p className="text-sm text-gray-600">info@taxvice.com</p>
+                <p className="text-sm text-gray-600">taiwoade-lawal@astutelawoffice.com</p>
               </div>
             </div>
 
