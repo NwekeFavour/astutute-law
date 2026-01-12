@@ -113,7 +113,7 @@ export default function Header() {
       >
         {/* Desktop */}
         <div className="hidden lg:flex items-center justify-between h-20">
-          <Link href="/" className="text-2xl font-bold">Lawsy</Link>
+          <Link href="/" className="text-2xl font-bold">Astute Law Office</Link>
 
           <nav>
             <ul className="flex items-center gap-8 font-normal">
@@ -136,7 +136,7 @@ export default function Header() {
 
         {/* Mobile */}
         <div className="flex lg:hidden items-center justify-between h-16">
-          <Link href="/" className="text-xl font-bold">Lawsy</Link>
+          <Link href="/" className="text-xl font-bold">Astute Law Office</Link>
 
           <div className="flex items-center gap-2">
             {/* MOBILE MENU toggles nav drawer, not modal */}
