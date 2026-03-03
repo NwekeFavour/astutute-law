@@ -31,7 +31,7 @@ export default function Footer() {
                                         bg-teal-100/60 hover:bg-teal-600 transition"
                             >
                                 <svg
-                                className="w-4 text-teal-700 transition group-hover:text-white"
+                                className="w-3 text-teal-700 transition group-hover:text-white"
                                 aria-hidden="true"
                                 viewBox="0 0 320 512"
                                 >
@@ -95,16 +95,16 @@ export default function Footer() {
                         </h3>
                         <ul className="space-y-3 text-sm">
                         <li>
-                            <Link href="#" className="hover:text-teal-400 transition">Home</Link>
+                            <Link href="/" className="hover:text-teal-400 transition">Home</Link>
                         </li>
                         <li>
-                            <Link href="#" className="hover:text-teal-400 transition">About Us</Link>
+                            <Link href="/about" className="hover:text-teal-400 transition">About Us</Link>
                         </li>
                         <li>
                             <Link href="#" className="hover:text-teal-400 transition">Practice Areas</Link>
                         </li>
                         <li>
-                            <Link href="#" className="hover:text-teal-400 transition">Contact Us</Link>
+                            <Link href="/contact" className="hover:text-teal-400 transition">Contact Us</Link>
                         </li>
                         </ul>
                     </div>

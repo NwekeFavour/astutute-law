@@ -3,6 +3,7 @@ import "./globals.css";
 import "./index.css";
 import Header from "@/components/header";
 import Script from "next/script";
+import AOSProvider from "@/components/aosProvider";
 
 export const metadata: Metadata = {
   title: "Astute Law Office || Criminal Law || 02",
@@ -18,7 +19,10 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         <Header />
+                <AOSProvider>
+
         {children}
+        </AOSProvider>
 
         {/* Calendly widget script */}
         <Script

@@ -62,7 +62,7 @@ export default function ContactSection() {
               {/* Button */}
               <button
                 type="submit"
-                className="inline-flex items-center gap-2 bg-orange-500 text-white px-6 py-3 font-medium hover:bg-orange-600 transition"
+                className="inline-flex items-center gap-2 bg-[#027b7a] text-white px-6 py-3 font-medium hover:bg-[#025a5a] transition"
               >
                 Free Case Evaluation →
               </button>

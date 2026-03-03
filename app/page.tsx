@@ -374,7 +374,7 @@ export default function Home() {
               </p>
 
               <a
-                href="#"
+                href="/contact"
                 className="inline-flex items-center gap-2 bg-white text-teal-700 font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:bg-teal-100 hover:gap-3"
               >
                 Contact Us
