@@ -141,10 +141,10 @@ export default function Header() {
           <div className="flex items-center gap-2">
             {/* MOBILE MENU toggles nav drawer, not modal */}
             <Button variant="outline" size="icon" onClick={() => setMobileMenuOpen((s) => !s)}>
-              <Menu />
+              <Menu  />
             </Button>
 
-            <Button variant="outline" onClick={() => setIsModalOpen(true)}>
+            <Button className="bg-[#027b7a] text-white" variant="outline" onClick={() => setIsModalOpen(true)}>
               Book
             </Button>
           </div>
