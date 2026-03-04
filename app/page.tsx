@@ -43,7 +43,7 @@ export default function Home() {
                     <div className="flex flex-wrap gap-4">
                       <Link
                         href="/about"
-                        className="inline-flex items-center gap-2 rounded-md border border-[#001313] px-6 py-3 font-semibold transition hover:bg-[#027b7a]/80 hover:text-white"
+                        className="inline-flex items-center gap-2 rounded-md px-6 py-3 font-semibold transition bg-[#027b7a]/80 hover:text-white"
                       >
                         Learn More
                         <i className="fa-regular fa-arrow-right"></i>

@@ -48,7 +48,7 @@ export default function Header() {
       const res = await fetch("http://localhost:5000/availability");
       if (!res.ok) throw new Error("Failed to fetch availability");
       const data = await res.json();
-      setAvailability(data.availability || []);
+      setAvailability(data.busy || []);
       // open modal (if not open) so mobile can also use form
       setIsModalOpen(true);
     } catch (err) {
@@ -102,7 +102,7 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 py-6 transition-all duration-300 ease-in-out ${
+      className={`sticky top-0 z-2000 py-6 transition-all duration-300 ease-in-out ${
         scrolled ? "bg-white shadow-md" : "bg-[#EDF7FF]"
       }`}
     >
