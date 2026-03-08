@@ -9,13 +9,9 @@ export default function ContactSection() {
           
           {/* LEFT: FORM */}
           <div className="lg:col-span-2 bg-[#f6f3ee] p-4 sm:p-8 rounded-md">
-            <h2 className="text-2xl font-semibold mb-2">
-              Send Us A Message
+            <h2 className="text-2xl font-semibold md:mb-10 mb-8 ">
+              Send A Message
             </h2>
-            <p className="text-sm text-gray-600 mb-6">
-              Our response time is within 30 minutes during business hours
-            </p>
-
             <form className="space-y-4">
               {/* Row 1 */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -76,7 +72,7 @@ export default function ContactSection() {
             <div className="bg-white p-6 rounded-md shadow-sm flex gap-4">
               <Clock className="w-6 h-6 text-black" />
               <div>
-                <h4 className="font-semibold mb-1">Contact Us</h4>
+                <h4 className="font-semibold mb-1">Address</h4>
                 <p className="text-sm text-gray-600">
                   301-231 Oak Park Blvd, <br />
                   Oakville, ON L6H 7S8 
@@ -97,7 +93,7 @@ export default function ContactSection() {
             <div className="bg-white p-6 rounded-md shadow-sm flex gap-4">
               <Mail className="w-6 h-6 text-black" />
               <div>
-                <h4 className="font-semibold mb-1">Email us today</h4>
+                <h4 className="font-semibold mb-1">Email</h4>
                 <p className="text-sm text-gray-600">taiwoade-lawal@astutelawoffice.com</p>
               </div>
             </div>

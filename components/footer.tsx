@@ -98,13 +98,13 @@ export default function Footer() {
                             <Link href="/" className="hover:text-teal-400 transition">Home</Link>
                         </li>
                         <li>
-                            <Link href="/about" className="hover:text-teal-400 transition">About Us</Link>
+                            <Link href="/about" className="hover:text-teal-400 transition">The Firm</Link>
                         </li>
                         <li>
                             <Link href="/practice-areas" className="hover:text-teal-400 transition">Practice Areas</Link>
                         </li>
                         <li>
-                            <Link href="/contact" className="hover:text-teal-400 transition">Contact Us</Link>
+                            <Link href="/contact" className="hover:text-teal-400 transition">Contact </Link>
                         </li>
                         </ul>
                     </div>

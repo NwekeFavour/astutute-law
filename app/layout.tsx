@@ -4,6 +4,7 @@ import "./index.css";
 import Header from "@/components/header";
 import Script from "next/script";
 import AOSProvider from "@/components/aosProvider";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "Astute Law Office || Criminal Law || 02",
@@ -19,9 +20,9 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         <Header />
-                <AOSProvider>
-
-        {children}
+        <AOSProvider>
+          {children}
+          <Toaster/>
         </AOSProvider>
 
         {/* Calendly widget script */}

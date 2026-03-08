@@ -79,8 +79,8 @@ export default function PracticeAreasPage() {
           <div>
             <p className="mb-3 font-bold lg:text-[40px] md:text-[32px] text-[28px]">Ready to Fight for Your<br/> Rights?</p>
             <p className="m-0 max-w-xl">
-              With years of experience, we've successfully defended countless
-              clients, To be securing their rights and helping them navigate the
+              With years of experience, Astute Law Office has successfully defended countless
+              clients, ensuring their rights are secured and helping them navigate the
               legal system.
             </p>
           </div>
@@ -96,7 +96,7 @@ export default function PracticeAreasPage() {
   <button
     className="bg-black text-white font-medium px-5 py-2 rounded-lg shadow-sm transition-all duration-300 hover:bg-gray-800 hover:scale-105"
   >
-    Contact Us
+    Contact Me
   </button>
 </div>
         </div>

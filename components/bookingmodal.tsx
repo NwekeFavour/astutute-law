@@ -2,6 +2,7 @@
 
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
+import { X } from "lucide-react";
 
 type ModalProps = {
   isOpen: boolean;
@@ -16,7 +17,7 @@ export default function BookingModal({ isOpen, onClose, children }: ModalProps) 
     }
     if (isOpen) {
       document.addEventListener("keydown", onKey);
-      document.body.style.overflow = "hidden"; // prevent background scroll
+      document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
     }
@@ -34,24 +35,33 @@ export default function BookingModal({ isOpen, onClose, children }: ModalProps) 
       aria-modal="true"
       role="dialog"
     >
-      {/* backdrop */}
+      {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
         onClick={onClose}
       />
 
-      {/* panel */}
-      <div className="relative z-10 w-full max-w-5xl bg-white rounded-2xl shadow-2xl overflow-hidden">
-        <div className="flex justify-end p-3">
+      {/* Panel */}
+      <div className="relative z-10 w-full max-w-5xl max-h-[90vh] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+        {/* Modal Header */}
+        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+          <div>
+            <h2 className="text-xl font-bold text-gray-900">Book a Consultation</h2>
+            <p className="text-sm text-gray-500 mt-0.5">Astute Law Office — C$500.00 consultation fee</p>
+          </div>
           <button
             onClick={onClose}
             aria-label="Close"
-            className="text-xl p-2 rounded hover:bg-gray-100"
+            className="p-2 rounded-full hover:bg-gray-100 transition text-gray-500 hover:text-gray-900"
           >
-            ✕
+            <X size={20} />
           </button>
         </div>
-        <div className="px-6 pb-6">{children}</div>
+
+        {/* Scrollable content */}
+        <div className="overflow-y-auto flex-1 px-6 py-6">
+          {children}
+        </div>
       </div>
     </div>
   );
