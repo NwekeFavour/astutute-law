@@ -26,7 +26,7 @@
 }
 
 .swiper-pagination-bullet-active{
-  color: #027b7a !important;
+  background: #027b7a !important;
 }
 
 @keyframes scroll {
