@@ -25,6 +25,10 @@
   display: none !important;
 }
 
+.swiper-pagination-bullet{
+  color: #027b7a !important;
+}
+
 @keyframes scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-40%); } /* scroll half the total width if you duplicate cards */

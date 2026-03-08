@@ -137,8 +137,8 @@ export default function Home() {
                         </div>
                         <div className="about4-single-content-area">
                           <a
-                            href="/service-single"
-                            className="text-lg font-semibold text-gray-900 hover:text-blue-600"
+                            href="#"
+                            className="text-lg font-semibold text-gray-900 hover:text-[#027b7a]"
                           >
                             {box.label}
                           </a>
