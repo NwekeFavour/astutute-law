@@ -23,7 +23,9 @@ import { Autoplay, EffectFade, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/pagination";
-
+declare module "swiper/css";
+declare module "swiper/css/effect-fade";
+declare module "swiper/css/pagination";
 export default function Home() {
   return (
     <div>

@@ -6,6 +6,8 @@ import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import BookingModal from "./bookingmodal";
 import { loadStripe } from "@stripe/stripe-js";
+import Logo7 from "@/public/assets/images/mainlogo.png"
+
 import {
   Elements,
   CardElement,
