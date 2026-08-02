@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+// @ts-expect-error - Next.js handles global CSS imports without type declarations
 import "./globals.css";
+// @ts-expect-error - Next.js handles global CSS imports without type declarations
 import "./index.css";
 import Header from "@/components/header";
 import Script from "next/script";
@@ -22,9 +24,21 @@ export default function RootLayout({
         <Header />
         <AOSProvider>
           {children}
-          <Toaster/>
+          <Toaster />
         </AOSProvider>
 
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-RKYD06HF3H"
+        ></Script>
+        <Script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-RKYD06HF3H');
+          `}
+        </Script>
         {/* Calendly widget script */}
         <Script
           src="https://assets.calendly.com/assets/external/widget.js"

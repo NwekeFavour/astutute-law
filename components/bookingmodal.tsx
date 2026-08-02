@@ -47,7 +47,7 @@ export default function BookingModal({ isOpen, onClose, children }: ModalProps) 
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
           <div>
             <h2 className="text-xl font-bold text-gray-900">Book a Consultation</h2>
-            <p className="text-sm text-gray-500 mt-0.5">Astute Law Office — C$500.00 consultation fee</p>
+            {/* <p className="text-sm text-gray-500 mt-0.5">Astute Law Office — C$500.00 consultation fee</p> */}
           </div>
           <button
             onClick={onClose}

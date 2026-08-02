@@ -199,9 +199,9 @@ export default function Home() {
         <div className="container mx-auto px-4">
           {/* Header */}
           <div className="lg:w-5/12 mb-8">
-            <span className="text-sm text-gray-500 block mb-2">
+            {/* <span className="text-sm text-gray-500 block mb-2">
               Practice Areas
-            </span>
+            </span> */}
             <h2 className=" md:text-[34px]! sm:text-[32px]! text-[28px]! lg:text-[40px]! font-bold text-gray-900 pro">
               The Power of a Resilient Legal Strategy
             </h2>

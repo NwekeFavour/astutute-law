@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Logo7 from "@/public/assets/images/logo7.webp"
+import Logo7 from "@/public/assets/images/mainlogo.png"
 import { MailIcon, MapPin, Phone } from "lucide-react";
 
 export default function Footer() { 
@@ -16,7 +16,7 @@ export default function Footer() {
                         <Image
                         src={Logo7}
                         alt="Law-Firm-Logo"
-                        className="h-10 mb-4"
+                        className="h-40 w-40 mb-4"
                         />
                         <p className="text-sm leading-relaxed mb-6 text-gray-400">
                         Include any additional information that may be relevant or helpful
@@ -100,9 +100,9 @@ export default function Footer() {
                         <li>
                             <Link href="/about" className="hover:text-teal-400 transition">The Firm</Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link href="/practice-areas" className="hover:text-teal-400 transition">Practice Areas</Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link href="/contact" className="hover:text-teal-400 transition">Contact </Link>
                         </li>

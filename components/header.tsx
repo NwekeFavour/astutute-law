@@ -12,10 +12,14 @@ import {
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
+// Ignore missing type declarations for side-effect CSS import
+// @ts-ignore: TS7016 - Could not find a declaration file for module
 import "../app/index.css";
 import { toast } from "sonner";
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!,
+);
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
 type Slot = {
@@ -27,7 +31,7 @@ type Slot = {
 
 type AvailableSlots = { [date: string]: Slot[] };
 type Step = "details" | "otp" | "slots" | "payment" | "success";
-
+const PAYMENT_ENABLED = false;
 // ─────────────────────────────────────────────
 // Step Indicator
 // ─────────────────────────────────────────────
@@ -36,46 +40,46 @@ function StepIndicator({ current }: { current: Step }) {
     { key: "details", label: "Your Details" },
     { key: "otp", label: "Verify Email" },
     { key: "slots", label: "Pick a Slot" },
-    { key: "payment", label: "Payment" },
+    ...(PAYMENT_ENABLED ? [{ key: "payment" as Step, label: "Payment" }] : []),
     { key: "success", label: "Confirmed" },
   ];
 
   const index = steps.findIndex((s) => s.key === current);
 
   return (
-  <div className="flex items-center justify-center mb-8 px-2">
-    {steps.map((step, i) => (
-      <div key={step.key} className="flex items-center">
-        <div className="flex flex-col items-center">
-          <div
-            className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold transition-all ${
-              i < index
-                ? "bg-[#027b7a] text-white"
-                : i === index
-                ? "bg-[#027b7a] text-white ring-2 sm:ring-4 ring-[#027b7a]/20"
-                : "bg-gray-100 text-gray-400"
-            }`}
-          >
-            {i < index ? "✓" : i + 1}
+    <div className="flex items-center justify-center mb-8 px-2">
+      {steps.map((step, i) => (
+        <div key={step.key} className="flex items-center">
+          <div className="flex flex-col items-center">
+            <div
+              className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold transition-all ${
+                i < index
+                  ? "bg-[#027b7a] text-white"
+                  : i === index
+                    ? "bg-[#027b7a] text-white ring-2 sm:ring-4 ring-[#027b7a]/20"
+                    : "bg-gray-100 text-gray-400"
+              }`}
+            >
+              {i < index ? "✓" : i + 1}
+            </div>
+            <span
+              className={`text-[9px] sm:text-xs mt-1 font-medium text-center max-w-[48px] sm:max-w-none leading-tight ${
+                i <= index ? "text-[#027b7a]" : "text-gray-400"
+              }`}
+            >
+              {step.label}
+            </span>
           </div>
-          <span
-            className={`text-[9px] sm:text-xs mt-1 font-medium text-center max-w-[48px] sm:max-w-none leading-tight ${
-              i <= index ? "text-[#027b7a]" : "text-gray-400"
-            }`}
-          >
-            {step.label}
-          </span>
+          {i < steps.length - 1 && (
+            <div
+              className={`w-4 xs:w-6 sm:w-10 md:w-14 h-0.5 mx-0.5 sm:mx-1 mb-4 sm:mb-5 flex-shrink-0 transition-all ${
+                i < index ? "bg-[#027b7a]" : "bg-gray-200"
+              }`}
+            />
+          )}
         </div>
-        {i < steps.length - 1 && (
-          <div
-            className={`w-4 xs:w-6 sm:w-10 md:w-14 h-0.5 mx-0.5 sm:mx-1 mb-4 sm:mb-5 flex-shrink-0 transition-all ${
-              i < index ? "bg-[#027b7a]" : "bg-gray-200"
-            }`}
-          />
-        )}
-      </div>
-    ))}
-  </div>
+      ))}
+    </div>
   );
 }
 
@@ -112,15 +116,13 @@ function PaymentForm({
     }
 
     try {
-      const { error: stripeError, paymentIntent } = await stripe.confirmCardPayment(
-        clientSecret,
-        {
+      const { error: stripeError, paymentIntent } =
+        await stripe.confirmCardPayment(clientSecret, {
           payment_method: {
             card,
             billing_details: { name: formData.name, email: formData.email },
           },
-        }
-      );
+        });
 
       if (stripeError) {
         setError(stripeError.message || "Payment failed");
@@ -152,7 +154,9 @@ function PaymentForm({
             <span>Date</span>
             <span className="font-medium text-gray-900">
               {new Date(selectedSlot.start).toLocaleDateString("en-NG", {
-                weekday: "short", month: "long", day: "numeric",
+                weekday: "short",
+                month: "long",
+                day: "numeric",
               })}
             </span>
           </div>
@@ -196,7 +200,12 @@ function PaymentForm({
       </div>
 
       <div className="flex gap-3">
-        <Button variant="outline" onClick={onBack} disabled={loading} className="flex-1">
+        <Button
+          variant="outline"
+          onClick={onBack}
+          disabled={loading}
+          className="flex-1"
+        >
           ← Back
         </Button>
         <Button
@@ -206,9 +215,24 @@ function PaymentForm({
         >
           {loading ? (
             <span className="flex items-center gap-2">
-              <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+              <svg
+                className="animate-spin h-4 w-4"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                />
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8v8z"
+                />
               </svg>
               Processing...
             </span>
@@ -250,14 +274,19 @@ function BookingFlow({ onClose }: { onClose: () => void }) {
     if (otpResendTimer <= 0) return;
     const interval = setInterval(() => {
       setOtpResendTimer((t) => {
-        if (t <= 1) { clearInterval(interval); return 0; }
+        if (t <= 1) {
+          clearInterval(interval);
+          return 0;
+        }
         return t - 1;
       });
     }, 1000);
     return () => clearInterval(interval);
   }, [otpResendTimer]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -335,8 +364,36 @@ function BookingFlow({ onClose }: { onClose: () => void }) {
   };
 
   // Step 3 → create payment intent → go to payment step
+  // Step 3 → create payment intent (if enabled) OR book directly for free
   const proceedToPayment = async () => {
     if (!selectedSlot) return;
+
+    if (!PAYMENT_ENABLED) {
+      setBookingLoading(true);
+      try {
+        const res = await fetch(`${API}/book-free`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            start: selectedSlot.start,
+            end: selectedSlot.end,
+            description: formData.reason,
+          }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "Booking failed");
+        setEventLink(data.eventLink);
+        setStep("success");
+      } catch (err: any) {
+        toast.error(err.message || "Booking failed. Please try again.");
+      } finally {
+        setBookingLoading(false);
+      }
+      return;
+    }
+
     setLoadingIntent(true);
     try {
       const res = await fetch(`${API}/create-payment-intent`, {
@@ -355,31 +412,36 @@ function BookingFlow({ onClose }: { onClose: () => void }) {
       setClientSecret(data.clientSecret);
       setStep("payment");
     } catch (err: any) {
-      toast.error(err.message || "Failed to initiate payment. Please try again.");
+      toast.error(
+        err.message || "Failed to initiate payment. Please try again.",
+      );
     } finally {
       setLoadingIntent(false);
     }
   };
 
   // Step 4 → confirm booking
-  const confirmBooking = useCallback(async (paymentIntentId: string): Promise<void> => {
-    setBookingLoading(true);
-    try {
-      const res = await fetch(`${API}/book`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ paymentIntentId }),
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Booking failed");
-      setEventLink(data.eventLink);
-      setStep("success");
-    } catch (err: any) {
-      toast.error(err.message || "Booking failed. Please contact us.");
-    } finally {
-      setBookingLoading(false);
-    }
-  }, []);
+  const confirmBooking = useCallback(
+    async (paymentIntentId: string): Promise<void> => {
+      setBookingLoading(true);
+      try {
+        const res = await fetch(`${API}/book`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ paymentIntentId }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "Booking failed");
+        setEventLink(data.eventLink);
+        setStep("success");
+      } catch (err: any) {
+        toast.error(err.message || "Booking failed. Please contact us.");
+      } finally {
+        setBookingLoading(false);
+      }
+    },
+    [],
+  );
 
   const reset = () => {
     setStep("details");
@@ -449,9 +511,24 @@ function BookingFlow({ onClose }: { onClose: () => void }) {
             >
               {otpLoading ? (
                 <span className="flex items-center justify-center gap-2">
-                  <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                  <svg
+                    className="animate-spin h-4 w-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    />
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8v8z"
+                    />
                   </svg>
                   Sending verification code...
                 </span>
@@ -472,13 +549,24 @@ function BookingFlow({ onClose }: { onClose: () => void }) {
         <StepIndicator current="otp" />
         <div className="max-w-sm mx-auto text-center">
           <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg className="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            <svg
+              className="w-8 h-8 text-blue-600"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              />
             </svg>
           </div>
 
-          <h3 className="text-xl font-bold text-gray-900 mb-1">Check your email</h3>
+          <h3 className="text-xl font-bold text-gray-900 mb-1">
+            Check your email
+          </h3>
           <p className="text-sm text-gray-500 mb-6">
             We sent a 6-digit code to{" "}
             <strong className="text-gray-800">{formData.email}</strong>
@@ -513,7 +601,10 @@ function BookingFlow({ onClose }: { onClose: () => void }) {
                 onPaste={(e) => {
                   // Handle paste — fill all 6 boxes at once
                   e.preventDefault();
-                  const pasted = e.clipboardData.getData("text").replace(/\D/g, "").slice(0, 6);
+                  const pasted = e.clipboardData
+                    .getData("text")
+                    .replace(/\D/g, "")
+                    .slice(0, 6);
                   setOtpValue(pasted);
                   const lastIndex = Math.min(pasted.length, 5);
                   document.getElementById(`otp-${lastIndex}`)?.focus();
@@ -522,8 +613,8 @@ function BookingFlow({ onClose }: { onClose: () => void }) {
                   otpError
                     ? "border-red-400 bg-red-50 text-red-600"
                     : otpValue[i]
-                    ? "border-[#027b7a] bg-[#027b7a]/5 text-gray-900"
-                    : "border-gray-200 text-gray-900 focus:border-[#027b7a]"
+                      ? "border-[#027b7a] bg-[#027b7a]/5 text-gray-900"
+                      : "border-gray-200 text-gray-900 focus:border-[#027b7a]"
                 }`}
               />
             ))}
@@ -540,9 +631,24 @@ function BookingFlow({ onClose }: { onClose: () => void }) {
           >
             {otpLoading ? (
               <span className="flex items-center justify-center gap-2">
-                <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                <svg
+                  className="animate-spin h-4 w-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  />
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8v8z"
+                  />
                 </svg>
                 {loadingSlots ? "Loading availability..." : "Verifying..."}
               </span>
@@ -599,7 +705,9 @@ function BookingFlow({ onClose }: { onClose: () => void }) {
           {dates.length === 0 ? (
             <div className="text-center py-12 text-gray-500">
               <p className="text-lg font-medium">No available slots</p>
-              <p className="text-sm mt-1">Please check back later or contact us directly.</p>
+              <p className="text-sm mt-1">
+                Please check back later or contact us directly.
+              </p>
             </div>
           ) : (
             <div className="space-y-6 max-h-[340px] overflow-y-auto pr-1">
@@ -607,7 +715,9 @@ function BookingFlow({ onClose }: { onClose: () => void }) {
                 <div key={date}>
                   <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">
                     {new Date(date).toLocaleDateString("en-NG", {
-                      weekday: "long", month: "long", day: "numeric",
+                      weekday: "long",
+                      month: "long",
+                      day: "numeric",
                     })}
                   </h4>
                   <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
@@ -637,9 +747,13 @@ function BookingFlow({ onClose }: { onClose: () => void }) {
             <div className="mt-6 pt-5 border-t border-gray-100">
               <div className="flex items-center justify-between flex-wrap gap-3">
                 <div className="text-sm text-gray-700">
-                  <span className="font-semibold text-gray-900">Selected: </span>
+                  <span className="font-semibold text-gray-900">
+                    Selected:{" "}
+                  </span>
                   {new Date(selectedSlot.start).toLocaleDateString("en-NG", {
-                    weekday: "short", month: "short", day: "numeric",
+                    weekday: "short",
+                    month: "short",
+                    day: "numeric",
                   })}{" "}
                   at{" "}
                   <span className="font-semibold text-[#027b7a]">
@@ -648,10 +762,16 @@ function BookingFlow({ onClose }: { onClose: () => void }) {
                 </div>
                 <Button
                   onClick={proceedToPayment}
-                  disabled={loadingIntent}
+                  disabled={loadingIntent || bookingLoading}
                   className="bg-[#027b7a] hover:bg-[#027b7a]/90"
                 >
-                  {loadingIntent ? "Preparing payment..." : "Proceed to Payment →"}
+                  {loadingIntent || bookingLoading
+                    ? PAYMENT_ENABLED
+                      ? "Preparing payment..."
+                      : "Confirming booking..."
+                    : PAYMENT_ENABLED
+                      ? "Proceed to Payment →"
+                      : "Confirm Booking →"}
                 </Button>
               </div>
             </div>
@@ -662,7 +782,7 @@ function BookingFlow({ onClose }: { onClose: () => void }) {
   }
 
   // ── Step: Payment ──
-  if (step === "payment" && clientSecret && selectedSlot) {
+  if (PAYMENT_ENABLED && step === "payment" && clientSecret && selectedSlot) {
     return (
       <>
         <StepIndicator current="payment" />
@@ -678,11 +798,28 @@ function BookingFlow({ onClose }: { onClose: () => void }) {
         {bookingLoading && (
           <div className="fixed inset-0 bg-black/30 z-50 flex items-center justify-center">
             <div className="bg-white rounded-xl p-6 text-center shadow-xl">
-              <svg className="animate-spin h-8 w-8 mx-auto mb-3 text-[#027b7a]" viewBox="0 0 24 24" fill="none">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+              <svg
+                className="animate-spin h-8 w-8 mx-auto mb-3 text-[#027b7a]"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                />
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8v8z"
+                />
               </svg>
-              <p className="font-semibold text-gray-700">Confirming your booking...</p>
+              <p className="font-semibold text-gray-700">
+                Confirming your booking...
+              </p>
             </div>
           </div>
         )}
@@ -695,16 +832,30 @@ function BookingFlow({ onClose }: { onClose: () => void }) {
     return (
       <div className="text-center py-8 max-w-md mx-auto">
         <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+          <svg
+            className="w-8 h-8 text-green-600"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2.5}
+              d="M5 13l4 4L19 7"
+            />
           </svg>
         </div>
-        <h3 className="text-2xl font-bold text-gray-900 mb-2">Booking Confirmed!</h3>
+        <h3 className="text-2xl font-bold text-gray-900 mb-2">
+          Booking Confirmed!
+        </h3>
         <p className="text-gray-500 mb-2">
-          A confirmation email has been sent to <strong>{formData.email}</strong>.
+          A confirmation email has been sent to{" "}
+          <strong>{formData.email}</strong>.
         </p>
         <p className="text-gray-500 mb-6 text-sm">
-          Please bring a valid ID and any relevant documents to your consultation.
+          Please bring a valid ID and any relevant documents to your
+          consultation.
         </p>
         {eventLink && (
           <Link
@@ -717,8 +868,12 @@ function BookingFlow({ onClose }: { onClose: () => void }) {
           </Link>
         )}
         <div className="flex gap-3 justify-center mt-4">
-          <Button variant="outline" onClick={reset}>Book Another</Button>
-          <Button className="bg-[#027b7a]" onClick={onClose}>Done</Button>
+          <Button variant="outline" onClick={reset}>
+            Book Another
+          </Button>
+          <Button className="bg-[#027b7a]" onClick={onClose}>
+            Done
+          </Button>
         </div>
       </div>
     );
@@ -755,10 +910,38 @@ export default function Header() {
           </Link>
           <nav>
             <ul className="flex items-center gap-8 font-normal">
-              <li><Link className="hover:text-gray-900 text-gray-100 transition" href="/">Home</Link></li>
-              <li><Link className="hover:text-gray-900 text-gray-100 transition" href="/about">The Firm</Link></li>
-              <li><Link className="hover:text-gray-900 text-gray-100 transition" href="/practice-areas">Practice Areas</Link></li>
-              <li><Link className="hover:text-gray-900 text-gray-100 transition" href="/contact">Contact</Link></li>
+              <li>
+                <Link
+                  className="hover:text-gray-900 text-gray-100 transition"
+                  href="/"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="hover:text-gray-900 text-gray-100 transition"
+                  href="/about"
+                >
+                  The Firm
+                </Link>
+              </li>
+              {/* <li>
+                <Link
+                  className="hover:text-gray-900 text-gray-100 transition"
+                  href="/practice-areas"
+                >
+                  Practice Areas
+                </Link>
+              </li> */}
+              <li>
+                <Link
+                  className="hover:text-gray-900 text-gray-100 transition"
+                  href="/contact"
+                >
+                  Contact
+                </Link>
+              </li>
             </ul>
           </nav>
           <Button
@@ -775,7 +958,11 @@ export default function Header() {
             Astute Law Office
           </Link>
           <div className="flex items-center gap-2">
-            <Button variant="outline" size="icon" onClick={() => setMobileMenuOpen((s) => !s)}>
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => setMobileMenuOpen((s) => !s)}
+            >
               <Menu />
             </Button>
             <Button
@@ -790,10 +977,29 @@ export default function Header() {
         {mobileMenuOpen && (
           <div className="lg:hidden mt-3 p-4 bg-white rounded-md shadow-md">
             <ul className="flex flex-col gap-3 text-gray-700">
-              <li><Link href="/" onClick={() => setMobileMenuOpen(false)}>Home</Link></li>
-              <li><Link href="/about" onClick={() => setMobileMenuOpen(false)}>The Firm</Link></li>
-              <li><Link href="/practice-areas" onClick={() => setMobileMenuOpen(false)}>Practice Areas</Link></li>
-              <li><Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Contact</Link></li>
+              <li>
+                <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" onClick={() => setMobileMenuOpen(false)}>
+                  The Firm
+                </Link>
+              </li>
+              {/* <li>
+                <Link
+                  href="/practice-areas"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Practice Areas
+                </Link>
+              </li> */}
+              <li>
+                <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
         )}

@@ -131,7 +131,7 @@ export default function AboutPage() {
             <h3 className="text-xl font-semibold mb-3">Vision</h3>
             <p className="text-gray-600 leading-relaxed">
               To be a trusted legal partner known for excellence, integrity, and
-              long-term client relationships across diverse practice areas.
+              long-term client relationships across diverse areas.
             </p>
           </div>
 
@@ -148,16 +148,9 @@ export default function AboutPage() {
       {/* Practice Areas */}
       <section className="py-24 bg-gradient-to-b from-white to-[#F8FAFC]">
         <div className="max-w-6xl mx-auto px-6">
-          {/* Section Header */}
-          <div className="max-w-3xl mb-16">
-            <p className="text-[#027b7a] font-semibold tracking-wide mb-3">
-              PRACTICE AREAS
-            </p>
-          </div>
+          
 
-          {/* Cards */}
           <div className="grid md:grid-cols-4 gap-6">
-            {/* Family Law Card */}
             <div data-aos="fade-up" data-aos-delay="100" className="group bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300">
               <h3 className="text-xl font-semibold mb-6 text-[#027b7a]">
                 Family Law
@@ -283,7 +276,7 @@ export default function AboutPage() {
                 Experienced Attorney
               </h3>
               <p className="text-gray-600">
-                Extensive legal knowledge across diverse practice areas,
+                Extensive legal knowledge across diverse areas,
                 ensuring depth, accuracy, and strategic foresight.
               </p>
             </div>
