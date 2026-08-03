@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Logo7 from "@/public/assets/images/mainlogo.png"
+import Logo7 from "@/public/assets/images/mainlogo3.png"
 import { MailIcon, MapPin, Phone } from "lucide-react";
 
 export default function Footer() { 
@@ -141,7 +141,7 @@ export default function Footer() {
                     </div>
 
                     {/* Bottom bar */}
-                    <div className="border-t border-gray-200 py-6 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500">
+                    <div className="border-t border-gray-200 py-6 flex flex-col md:flex-row sm:items-center justify-between text-sm text-gray-500">
                     <p>© {new Date().getFullYear()} Astute Law Office Lawyer. All rights reserved.</p>
                     <Link href="#" className="hover:text-teal-400 transition mt-2 md:mt-0">
                         Privacy Policy

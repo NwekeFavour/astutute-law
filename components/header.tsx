@@ -5,8 +5,9 @@ import { useEffect, useState, useCallback } from "react";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import BookingModal from "./bookingmodal";
+import Image from "next/image";
 import { loadStripe } from "@stripe/stripe-js";
-import Logo7 from "@/public/assets/images/mainlogo.png"
+import Logo7 from "@/public/assets/images/mainlogo(white)1.png";
 
 import {
   Elements,
@@ -907,8 +908,8 @@ export default function Header() {
       <div className="container mx-auto px-4">
         {/* Desktop */}
         <div className="hidden lg:flex items-center justify-between h-20">
-          <Link href="/" className="text-2xl font-bold text-gray-100">
-            Astute Law Office
+          <Link href="/" className="text-2xl flex items-center justify-center font-bold text-gray-100">
+            <Image src={Logo7} alt="Law-Firm-Logo" className="h-24 w-30 " />
           </Link>
           <nav>
             <ul className="flex items-center gap-8 font-normal">
@@ -956,8 +957,8 @@ export default function Header() {
 
         {/* Mobile */}
         <div className="flex lg:hidden items-center justify-between h-16">
-          <Link href="/" className="text-xl font-bold text-gray-100">
-            Astute Law Office
+          <Link href="/" className="text-2xl flex items-center justify-center font-bold text-gray-100">
+            <Image src={Logo7} alt="Law-Firm-Logo" className="h-24 w-30 " />
           </Link>
           <div className="flex items-center gap-2">
             <Button

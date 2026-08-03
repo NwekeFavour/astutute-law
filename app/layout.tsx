@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-// @ts-expect-error - Next.js handles global CSS imports without type declarations
 import "./globals.css";
-// @ts-expect-error - Next.js handles global CSS imports without type declarations
 import "./index.css";
 import Header from "@/components/header";
 import Script from "next/script";
@@ -30,8 +28,8 @@ export default function RootLayout({
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-RKYD06HF3H"
-        ></Script>
-        <Script>
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
