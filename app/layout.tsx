@@ -8,6 +8,9 @@ import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.astutelawoffice.com"), // 🔧 swap in your real domain
+  alternates: {
+    canonical: "/",
+  },
   title: {
     default: "Astute Law Office | Criminal Law",
     template: "%s | Astute Law Office",

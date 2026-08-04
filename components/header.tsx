@@ -929,14 +929,14 @@ export default function Header() {
                   The Firm
                 </Link>                
               </li>
-              <li>
+              {/* <li>
                 <Link
                   className="hover:text-gray-900 text-gray-100 transition"
                   href="/fraud"
                 >
                   Fraud Notice
                 </Link>
-              </li>
+              </li> */}
               {/* <li>
                 <Link
                   className="hover:text-gray-900 text-gray-100 transition"
@@ -977,7 +977,7 @@ export default function Header() {
               <Menu />
             </Button>
             <Button
-              className="font-bold text-white hover:bg-gray-200 rounded-lg"
+              className="font-bold text-gray-900 hover:bg-gray-200 bg-gray-100 rounded-lg"
               onClick={() => setIsModalOpen(true)}
             >
               Book
@@ -998,7 +998,7 @@ export default function Header() {
                   The Firm
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/fraud" onClick={() => setMobileMenuOpen(false)}>
                   Fraud Notice
                 </Link>
@@ -1015,7 +1015,7 @@ export default function Header() {
                 >
                   Accessible Client Service Policy
                 </Link>
-              </li>
+              </li> */}
               {/* <li>
                 <Link
                   href="/practice-areas"
