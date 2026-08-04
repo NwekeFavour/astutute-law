@@ -126,8 +126,8 @@ export default function Footer() {
                         <ul className="space-y-4 text-sm">
                         <li className="flex items-center gap-3">
                             <MailIcon className="fa-solid fa-envelope mt-1 w-5 h-5 text-neutral-700" />
-                            <Link href="mailto:taiwoade-lawal@astutelawoffice.com" className="hover:text-teal-400 transition">
-                            taiwoade-lawal@astutelawoffice.com
+                            <Link href="mailto:info@astutelawoffice.com" className="hover:text-teal-400 transition">
+                            info@astutelawoffice.com
                             </Link>
                         </li>
 
