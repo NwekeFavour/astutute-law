@@ -1,12 +1,6 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import ServiceImg2 from "@/public/assets/images/service4-img2.webp";
-import ServiceImg3 from "@/public/assets/images/service4-img3.webp";
-import ServiceImg4 from "@/public/assets/images/service4-img1.webp";
-import WorkLaw1 from "@/public/assets/images/work-law1.svg";
-import WorkLaw2 from "@/public/assets/images/work-law2.svg";
-import WorkLaw3 from "@/public/assets/images/work-law3.svg";
 import PeraOne from "@/public/assets/images/law1.webp";
 import PeraTwo from "@/public/assets/images/law2.webp";
 import PeraThree from "@/public/assets/images/law3.webp";
@@ -16,6 +10,11 @@ import {
   HeartHandshake,
   ShieldCheck,
   Briefcase,
+  ScrollText,
+  MessageSquare,
+  ClipboardCheck,
+  Scale,
+  HandCoins,
 } from "lucide-react";
 import Footer from "@/components/footer";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -26,6 +25,75 @@ import "swiper/css/pagination";
 declare module "swiper/css";
 declare module "swiper/css/effect-fade";
 declare module "swiper/css/pagination";
+
+// ===== Practice Areas (5, per Website_Notes.docx "Legal Expertise" section) =====
+const practiceAreas = [
+  {
+    gradient: "from-[#3a1a0a] via-[#6b3515] to-[#8a4d1a]",
+    title: "Business Law",
+    icon: Briefcase,
+    desc: "Comprehensive legal support for entrepreneurs, professionals, and businesses at every stage — business formation, corporate structuring, shareholder and partnership agreements, commercial contracts, and ongoing corporate governance.",
+  },
+  {
+    gradient: "from-[#0a3b3f] via-[#0d5257] to-[#1a7a6e]",
+    title: "Family Law",
+    icon: Users,
+    desc: "Family law matters are handled with diligence and sensitivity, covering separation and divorce, parenting arrangements, child and spousal support, and property division — with a focus on practical resolutions that safeguard your interests.",
+  },
+  {
+    gradient: "from-[#1a3a5c] via-[#1a5272] to-[#0d6e8a]",
+    title: "Mental Health Law",
+    icon: HeartHandshake,
+    desc: "Guidance and representation in matters involving mental health legislation, including capacity, consent to treatment, and patient rights — supporting clients through healthcare institutions and administrative tribunals with fairness and dignity.",
+  },
+  {
+    gradient: "from-[#4a1a5c] via-[#5c1a72] to-[#7a2a8a]",
+    title: "Wills and Estates",
+    icon: ScrollText,
+    desc: "Thoughtful estate planning through the preparation of wills and powers of attorney, plus assistance with estate administration and probate — guiding clients through every legal and practical aspect with clarity and care.",
+  },
+  {
+    gradient: "from-[#1a3a1a] via-[#2a5c2a] to-[#3a7a3a]",
+    title: "Legal Advocacy",
+    icon: ShieldCheck,
+    desc: "Strategic guidance and careful advocacy across core practice areas, supporting individuals, families, and businesses in navigating complex legal issues with professionalism and a results-oriented approach.",
+  },
+];
+
+// ===== How It Works (5 steps, per Website_Notes.docx "How it works — Support in Every Case") =====
+const howItWorks = [
+  {
+    step: "01",
+    title: "Clear Legal Guidance",
+    desc: "Clients are given clear explanations of their legal rights, options, and the steps involved in their matter, helping them understand the process and make informed decisions.",
+    icon: ScrollText,
+  },
+  {
+    step: "02",
+    title: "Consistent Communication",
+    desc: "Regular updates and timely responses to questions help clients stay informed about developments in their case and reduce uncertainty.",
+    icon: MessageSquare,
+  },
+  {
+    step: "03",
+    title: "Careful Review & Strategy Development",
+    desc: "Every matter is approached with attention to detail, including reviewing documents, researching relevant law, and preparing appropriate legal strategies.",
+    icon: ClipboardCheck,
+  },
+  {
+    step: "04",
+    title: "Expert Implementation & Representation",
+    desc: "Every matter receives expert strategy implementation and professional representation in negotiations, court proceedings, and other legal processes to protect your interests.",
+    icon: Scale,
+  },
+  {
+    step: "05",
+    title: "Practical Advice & Cost-Effective Strategy",
+    desc: "Beyond legal theory, clients receive practical advice tailored to their situation so they can address legal challenges effectively.",
+    icon: HandCoins,
+  },
+];
+
 export default function Home() {
   return (
     <div>
@@ -44,17 +112,21 @@ export default function Home() {
               {[
                 {
                   img: PeraOne,
-                  heading: ["Protect Your", "Future Life,", "Our Best Lawyers"],
-                  sub: "Every case is unique, and I approach each with meticulous attention to detail. Whether you're facing charges related to DUI, drug offenses, or assault.",
+                  heading: [
+                    "Committed To",
+                    "Delivering Expert",
+                    "Legal Support",
+                  ],
+                  sub: "Legal services are provided with diligence, careful preparation, and a strong commitment to professional standards, with a focus on delivering clear and practical legal guidance.",
                 },
                 {
                   img: PeraTwo,
                   heading: [
-                    "Justice Is",
-                    "Not A Privilege,",
-                    "It's Your Right",
+                    "High-Quality Legal",
+                    "Services, Practical",
+                    "Guidance",
                   ],
-                  sub: "We stand beside you through every legal battle — from courtrooms to settlements — ensuring your voice is heard and your rights fully defended.",
+                  sub: "Navigating legal issues can be challenging without clear and reliable guidance. Legal services are provided with attention to detail, thoughtful analysis, and a practical approach aimed at helping clients address their legal matters effectively.",
                 },
                 {
                   img: PeraThree,
@@ -197,42 +269,31 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* ===== LEGAL EXPERTISE / PRACTICE AREAS (5 cards) ===== */}
       <div className="bg-white py-12">
         <div className="container mx-auto px-4">
           {/* Header */}
-          <div className="lg:w-5/12 mb-8">
-            {/* <span className="text-sm text-gray-500 block mb-2">
-              Practice Areas
-            </span> */}
-            <h2 className=" md:text-[34px]! sm:text-[32px]! text-[28px]! lg:text-[40px]! font-bold text-gray-900 pro">
+          <div className="lg:w-8/12 mb-8">
+            <span className="text-sm block mb-2 px-3 py-1 text-[#027b7a] bg-[#027b7a]/16 w-fit">
+              Legal Expertise
+            </span>
+            <h2 className=" md:text-[34px]! sm:text-[32px]! text-[28px]! lg:text-[40px]! font-bold text-gray-900 pro mb-3">
               The Power of a Resilient Legal Strategy
             </h2>
+            <p className="text-gray-600 text-base max-w-3xl">
+              The Firm offers legal services across several core practice
+              areas, with emphasis on strategic guidance, careful advocacy,
+              and practical solutions tailored to each client&apos;s
+              circumstances.
+            </p>
           </div>
 
           {/* Carousel */}
           <div className="w-full overflow-x-hidden py-4 relative">
             <div className="flex w-max animate-scroll">
-              {/* Your cards */}
-              {[
-                {
-                  gradient: "from-[#0a3b3f] via-[#0d5257] to-[#1a7a6e]",
-                  title: "Family Law",
-                  icon: Users,
-                  desc: "Providing compassionate and expert legal guidance for family-related matters including divorce, custody, and adoption.",
-                },
-                {
-                  gradient: "from-[#1a3a5c] via-[#1a5272] to-[#0d6e8a]",
-                  title: "Mental Health Law",
-                  icon: HeartHandshake,
-                  desc: "Protecting the rights of individuals with mental health concerns through legal advocacy and representation.",
-                },
-                {
-                  gradient: "from-[#3a1a0a] via-[#6b3515] to-[#8a4d1a]",
-                  title: "Corporate & Commercial Law",
-                  icon: Briefcase,
-                  desc: "Providing legal solutions for businesses, including contracts, compliance, and commercial disputes.",
-                },
-              ].map((service, index) => (
+              {/* Render twice for the infinite-scroll effect */}
+              {[...practiceAreas, ...practiceAreas].map((service, index) => (
                 <div
                   key={index}
                   className="relative shrink-0 w-80 h-80 rounded-none overflow-hidden shadow-md group cursor-pointer mr-3"
@@ -252,7 +313,7 @@ export default function Home() {
                   <div
                     className="absolute bottom-0 left-0 right-0 mx-4 bg-white bg-opacity-90
       transition-all duration-500 my-5
-      h-20 group-hover:h-48
+      h-20 group-hover:h-56
       overflow-hidden flex flex-col items-center justify-center px-4"
                   >
                     <div className="flex items-center justify-center gap-3">
@@ -261,71 +322,7 @@ export default function Home() {
                         {service.title}
                       </h3>
                     </div>
-                    <div className="mt-3 text-center max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100 transition-all duration-300">
-                      <p className="text-gray-700 text-sm mb-3">
-                        {service.desc}
-                      </p>
-                      <a
-                        href="#"
-                        className="text-[#0a3b3f] font-medium inline-flex items-center"
-                      >
-                        Read More
-                        <i className="fa-regular fa-arrow-right ml-1"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              ))}
-
-              {[
-                {
-                  gradient: "from-[#0a3b3f] via-[#0d5257] to-[#1a7a6e]",
-                  title: "Family Law",
-                  icon: Users,
-                  desc: "Providing compassionate and expert legal guidance for family-related matters including divorce, custody, and adoption.",
-                },
-                {
-                  gradient: "from-[#1a3a5c] via-[#1a5272] to-[#0d6e8a]",
-                  title: "Mental Health Law",
-                  icon: HeartHandshake,
-                  desc: "Protecting the rights of individuals with mental health concerns through legal advocacy and representation.",
-                },
-                {
-                  gradient: "from-[#3a1a0a] via-[#6b3515] to-[#8a4d1a]",
-                  title: "Corporate & Commercial Law",
-                  icon: Briefcase,
-                  desc: "Providing legal solutions for businesses, including contracts, compliance, and commercial disputes.",
-                },
-              ].map((service, index) => (
-                <div
-                  key={index}
-                  className="relative shrink-0 w-80 h-80 rounded-none overflow-hidden shadow-md group cursor-pointer mr-3"
-                >
-                  {/* Icon background instead of image */}
-                  <div
-                    className={`w-full h-full bg-gradient-to-br ${service.gradient} flex items-center justify-center relative overflow-hidden`}
-                  >
-                    {/* Decorative circles for depth */}
-                    <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full bg-white opacity-5" />
-                    <div className="absolute -bottom-10 -left-10 w-52 h-52 rounded-full bg-white opacity-5" />
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-white opacity-5" />
-                    {/* Center icon */}
-                    <service.icon className="w-20 h-20 text-white opacity-40 relative z-10" />
-                  </div>
-
-                  <div
-                    className="absolute bottom-0 left-0 right-0 mx-4 bg-white bg-opacity-90
-      transition-all duration-500 my-5
-      h-20 group-hover:h-48
-      overflow-hidden flex flex-col items-center justify-center px-4"
-                  >
-                    <div className="flex items-center justify-center gap-3">
-                      <service.icon className="lg:w-9 lg:h-9 w-6 h-6 text-[#0a3b3f] shrink-0" />
-                      <h3 className="lg:text-[22px] md:text-[20px] text-[19px] font-semibold text-black pro1 text-center">
-                        {service.title}
-                      </h3>
-                    </div>
-                    <div className="mt-3 text-center max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100 transition-all duration-300">
+                    <div className="mt-3 text-center max-h-0 opacity-0 group-hover:max-h-48 group-hover:opacity-100 transition-all duration-300">
                       <p className="text-gray-700 text-sm mb-3">
                         {service.desc}
                       </p>
@@ -344,6 +341,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* ===== HOW IT WORKS (5 steps) ===== */}
       <div className="bg-white py-12">
         <div className="container mx-auto px-4">
           {/* Header */}
@@ -357,39 +356,16 @@ export default function Home() {
           </div>
 
           {/* Steps */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                step: "01",
-                title: "Investigation",
-                desc: " .",
-                icon: WorkLaw1,
-              },
-              {
-                step: "02",
-                title: "Legal Representation",
-                desc: " .",
-                icon: WorkLaw2,
-              },
-              {
-                step: "03",
-                title: "Compliance & Solution",
-                desc: " .",
-                icon: WorkLaw3,
-              },
-            ].map((item, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {howItWorks.map((item, index) => (
               <div
                 key={index}
-                className="group relative bg-white h-[245px] rounded-lg p-6 shadow-md overflow-hidden transition-colors duration-500 hover:bg-[#027b7a]"
+                className="group relative bg-white min-h-[280px] rounded-lg p-6 shadow-md overflow-hidden transition-colors duration-500 hover:bg-[#027b7a]"
               >
                 {/* Icon circle */}
                 <div className="absolute top-0 left-0">
                   <div className="w-20 h-20 bg-[#027b7a] rounded-br-full flex items-center justify-center transition-colors duration-500 group-hover:bg-white/20">
-                    <Image
-                      src={item.icon}
-                      alt={item.title}
-                      className="w-8 h-8 object-contain"
-                    />
+                    <item.icon className="w-8 h-8 text-white" />
                   </div>
                 </div>
 
@@ -403,7 +379,7 @@ export default function Home() {
                   <h3 className="text-xl font-semibold text-gray-900 mb-3 transition-colors duration-500 group-hover:text-white">
                     {item.title}
                   </h3>
-                  <p className="text-gray-600 text-[17px] md:text-sm transition-colors duration-500 group-hover:text-white/90">
+                  <p className="text-gray-600 text-[15px] md:text-sm transition-colors duration-500 group-hover:text-white/90">
                     {item.desc}
                   </p>
                 </div>
@@ -412,6 +388,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+
       <div className="bg-teal-700 py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-center">

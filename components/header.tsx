@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import BookingModal from "./bookingmodal";
 import Image from "next/image";
 import { loadStripe } from "@stripe/stripe-js";
-import Logo7 from "@/public/assets/images/mainlogo(white)1.png";
+import Logo7 from "@/public/assets/images/mainlogo(white)1.webp";
 
 import {
   Elements,
@@ -927,6 +927,14 @@ export default function Header() {
                   href="/about"
                 >
                   The Firm
+                </Link>                
+              </li>
+              <li>
+                <Link
+                  className="hover:text-gray-900 text-gray-100 transition"
+                  href="/fraud"
+                >
+                  Fraud Notice
                 </Link>
               </li>
               {/* <li>
@@ -988,6 +996,24 @@ export default function Header() {
               <li>
                 <Link href="/about" onClick={() => setMobileMenuOpen(false)}>
                   The Firm
+                </Link>
+              </li>
+              <li>
+                <Link href="/fraud" onClick={() => setMobileMenuOpen(false)}>
+                  Fraud Notice
+                </Link>
+              </li>
+              <li>
+                <Link href="/accessibility-plan" onClick={() => setMobileMenuOpen(false)}>
+                  Accessibility Plan
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/accessibility"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Accessible Client Service Policy
                 </Link>
               </li>
               {/* <li>

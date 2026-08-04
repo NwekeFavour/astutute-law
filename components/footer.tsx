@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Logo7 from "@/public/assets/images/mainlogo3.png"
+import Logo7 from "@/public/assets/images/mainlogo3.webp"
 import { MailIcon, MapPin, Phone } from "lucide-react";
 
 export default function Footer() { 
@@ -106,6 +106,15 @@ export default function Footer() {
                         <li>
                             <Link href="/contact" className="hover:text-teal-400 transition">Contact </Link>
                         </li>
+                        <li>
+                            <Link href="/fraud" className="hover:text-teal-400 transition">Fraud Notice </Link>
+                        </li>
+                        <li>
+                            <Link href="/accessibility" className="hover:text-teal-400 transition">Accessible Client Service Policy </Link>
+                        </li>
+                        <li>
+                            <Link href="/accessibility-plan" className="hover:text-teal-400 transition">Accessibility Plan </Link>
+                        </li>
                         </ul>
                     </div>
 
@@ -125,15 +134,15 @@ export default function Footer() {
                         <li className="flex items-start gap-3">
                             <MapPin className="fa-solid fa-map-marker-alt mt-1 w-5 h-5 text-neutral-700" />
                             <span>
-                             301-231 Oak Park Blvd, <br />
-                             Oakville, ON L6H 7S8 <br />
+                             55 Village Centre Place, <br />
+                             Suite 200, Mississauga, ON L4Z1V9 <br />
                             </span>
                         </li>
 
                         <li className="flex items-center gap-3">
                             <Phone className="fa-solid fa-phone mt-1 w-5 h-5 text-neutral-700" />
-                            <Link href="tel:9025806770" className="hover:text-teal-400 transition">
-                            902 580 6770
+                            <Link href="tel:9057182455" className="hover:text-teal-400 transition">
+                            905 718 2455
                             </Link>
                         </li>
                         </ul>
@@ -143,9 +152,13 @@ export default function Footer() {
                     {/* Bottom bar */}
                     <div className="border-t border-gray-200 py-6 flex flex-col md:flex-row sm:items-center justify-between text-sm text-gray-500">
                     <p>© {new Date().getFullYear()} Astute Law Office Lawyer. All rights reserved.</p>
-                    <Link href="#" className="hover:text-teal-400 transition mt-2 md:mt-0">
+                    <div className="flex flex-wrap space-x-3"><Link href="/terms" className="hover:text-teal-400 transition mt-2 md:mt-0">
+                        Terms Of Use
+                    </Link>
+                    <Link href="/privacy" className="hover:text-teal-400 transition mt-2 md:mt-0">
                         Privacy Policy
                     </Link>
+                    </div>
                     </div>
                 </div>
             </footer>
