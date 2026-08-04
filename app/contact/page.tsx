@@ -1,5 +1,12 @@
 import ContactSection from "@/components/contact";
 import Footer from "@/components/footer";
+import { Metadata } from "next";
+
+
+  export const metadata: Metadata = {
+    title: "Contact Us",
+    description: "Get in touch with Astute Law Office to schedule your consultation.",
+  };
 
 export default function ContactPage() {
     return(
