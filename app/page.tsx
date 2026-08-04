@@ -117,7 +117,7 @@ export default function Home() {
                     "Delivering Expert",
                     "Legal Support",
                   ],
-                  sub: "Legal services are provided with diligence, careful preparation, and a strong commitment to professional standards, with a focus on delivering clear and practical legal guidance.",
+                  sub: "Legal services are provided with diligence, careful preparation, and a strong commitment to professional standards, with a focus on delivering clear and practical legal guidance",
                 },
                 {
                   img: PeraTwo,
@@ -127,12 +127,7 @@ export default function Home() {
                     "Guidance",
                   ],
                   sub: "Navigating legal issues can be challenging without clear and reliable guidance. Legal services are provided with attention to detail, thoughtful analysis, and a practical approach aimed at helping clients address their legal matters effectively.",
-                },
-                {
-                  img: PeraThree,
-                  heading: ["Expert Counsel,", "Trusted By", "Thousands"],
-                  sub: "With decades of combined experience across multiple legal disciplines, our team delivers results-driven representation you can count on.",
-                },
+                },               
               ].map((slide, i) => (
                 <SwiperSlide key={i}>
                   {/* Background Image */}
