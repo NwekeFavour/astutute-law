@@ -22,6 +22,11 @@ import { Autoplay, EffectFade, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/pagination";
+import BusinessLawImg from "@/public/assets/images/image1.png";
+import FamilyLawImg from "@/public/assets/images/image2.png";
+import MentalHealthImg from "@/public/assets/images/image3.png";
+import WillsEstatesImg from "@/public/assets/images/image4.png";
+import LegalAdvocacyImg from "@/public/assets/images/image5.png";
 declare module "swiper/css";
 declare module "swiper/css/effect-fade";
 declare module "swiper/css/pagination";
@@ -32,30 +37,35 @@ const practiceAreas = [
     gradient: "from-[#3a1a0a] via-[#6b3515] to-[#8a4d1a]",
     title: "Business Law",
     icon: Briefcase,
+    image: BusinessLawImg,
     desc: "Comprehensive legal support for entrepreneurs, professionals, and businesses at every stage — business formation, corporate structuring, shareholder and partnership agreements, commercial contracts, and ongoing corporate governance.",
   },
   {
     gradient: "from-[#0a3b3f] via-[#0d5257] to-[#1a7a6e]",
     title: "Family Law",
     icon: Users,
+    image: FamilyLawImg,
     desc: "Family law matters are handled with diligence and sensitivity, covering separation and divorce, parenting arrangements, child and spousal support, and property division — with a focus on practical resolutions that safeguard your interests.",
   },
   {
     gradient: "from-[#1a3a5c] via-[#1a5272] to-[#0d6e8a]",
     title: "Mental Health Law",
     icon: HeartHandshake,
+    image: MentalHealthImg,
     desc: "Guidance and representation in matters involving mental health legislation, including capacity, consent to treatment, and patient rights — supporting clients through healthcare institutions and administrative tribunals with fairness and dignity.",
   },
   {
     gradient: "from-[#4a1a5c] via-[#5c1a72] to-[#7a2a8a]",
     title: "Wills and Estates",
     icon: ScrollText,
+    image: WillsEstatesImg,
     desc: "Thoughtful estate planning through the preparation of wills and powers of attorney, plus assistance with estate administration and probate — guiding clients through every legal and practical aspect with clarity and care.",
   },
   {
     gradient: "from-[#1a3a1a] via-[#2a5c2a] to-[#3a7a3a]",
     title: "Legal Advocacy",
     icon: ShieldCheck,
+    image: LegalAdvocacyImg,
     desc: "Strategic guidance and careful advocacy across core practice areas, supporting individuals, families, and businesses in navigating complex legal issues with professionalism and a results-oriented approach.",
   },
 ];
@@ -127,7 +137,7 @@ export default function Home() {
                     "Guidance",
                   ],
                   sub: "Navigating legal issues can be challenging without clear and reliable guidance. Legal services are provided with attention to detail, thoughtful analysis, and a practical approach aimed at helping clients address their legal matters effectively.",
-                },               
+                },
               ].map((slide, i) => (
                 <SwiperSlide key={i}>
                   {/* Background Image */}
@@ -186,34 +196,123 @@ export default function Home() {
               <div className="">
                 <div className="flex flex-col lg:flex-row items-center gap-12">
                   {/* Left Column - Boxes */}
-                  <div className="lg:w-1/2 flex flex-col gap-8">
-                    {[
-                      { label: "Legal Expertise", duration: "800" },
-                      { label: "Protection & Rights", duration: "1000" },
-                      { label: "Courtroom Representation", duration: "1200" },
-                    ].map((box, i) => (
-                      <div
-                        key={i}
-                        className="about4-single-boxarea relative p-6 rounded-xl bg-white shadow-lg flex items-start gap-4"
+                  <div>
+                    {" "}
+                    <div
+                      data-aos="fade-right"
+                      data-aos-duration="700"
+                      className="mb-8"
+                    >
+                      {" "}
+                      <span className="inline-flex items-center gap-2 px-4 py-2 bg-[#027b7a]/10 text-[#027b7a] text-sm font-semibold">
+                        {" "}
+                        <span className="w-2 h-2 rounded-full bg-[#027b7a]" />{" "}
+                        OUR APPROACH{" "}
+                      </span>{" "}
+                      <h2 className="mt-5 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                        {" "}
+                        Legal Support Built Around{" "}
+                        <span className="text-[#027b7a]"> Your Needs</span>{" "}
+                      </h2>{" "}
+                      <p className="mt-5 text-gray-600 leading-relaxed max-w-xl">
+                        {" "}
+                        At Astute Law Office, legal advice goes beyond simply
+                        explaining the law. We focus on understanding your
+                        circumstances, protecting your interests, and developing
+                        practical strategies that move your matter forward.{" "}
+                      </p>{" "}
+                    </div>{" "}
+                    {/* Service Links */}{" "}
+                    <div className="space-y-4">
+                      {" "}
+                      {/* Practical Legal Advice */}{" "}
+                      <Link
+                        href="/about#practical-legal-advice"
                         data-aos="fade-up"
-                        data-aos-duration={box.duration}
-                        data-aos-easing="linear"
+                        data-aos-duration="700"
+                        scroll={false}
+                        className="group flex items-center justify-between gap-5 bg-white border border-gray-100 p-5 md:p-6 shadow-sm hover:shadow-md hover:border-[#027b7a]/30 transition-all duration-300"
                       >
-                        <div className="bg-[#027b7a]/15 sm:w-[60px] rounded-full md:w-[50px] md:h-12 lg:w-[100px] w-[100px] h-12 lg:h-16 flex justify-center items-center">
-                          <div className="bg-[#027b7a] rounded-full w-7 h-7 lg:w-8 md:w-7 md:h-7 lg:h-8 flex items-center justify-center">
-                            <CheckIcon className="w-5 h-5 text-neutral-100 shrink-0 mt-1" />
-                          </div>
-                        </div>
-                        <div className="about4-single-content-area">
-                          <a
-                            href="#"
-                            className="text-lg font-semibold text-gray-900 hover:text-[#027b7a]"
-                          >
-                            {box.label}
-                          </a>
-                        </div>
-                      </div>
-                    ))}
+                        {" "}
+                        <div className="flex items-center gap-4">
+                          {" "}
+                          <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#027b7a]/10 flex items-center justify-center">
+                            {" "}
+                            <i className="fa-regular fa-lightbulb text-[#027b7a] text-lg" />{" "}
+                          </div>{" "}
+                          <div>
+                            {" "}
+                            <h3 className="font-semibold text-gray-900 group-hover:text-[#027b7a] transition-colors">
+                              {" "}
+                              Practical Legal Advice{" "}
+                            </h3>{" "}
+                            <p className="text-sm text-gray-500 mt-1">
+                              {" "}
+                              Clear guidance for informed decisions{" "}
+                            </p>{" "}
+                          </div>{" "}
+                        </div>{" "}
+                        <i className="fa-regular fa-arrow-right text-gray-400 group-hover:text-[#027b7a] group-hover:translate-x-1 transition-all" />{" "}
+                      </Link>{" "}
+                      {/* Business Growth */}{" "}
+                      <Link
+                        href="/about#business-growth-corporate-advisory"
+                        data-aos="fade-up"
+                        data-aos-duration="900"
+                        scroll={false}
+                        className="group flex items-center justify-between gap-5 bg-white border border-gray-100 p-5 md:p-6 shadow-sm hover:shadow-md hover:border-[#027b7a]/30 transition-all duration-300"
+                      >
+                        {" "}
+                        <div className="flex items-center gap-4">
+                          {" "}
+                          <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#027b7a]/10 flex items-center justify-center">
+                            {" "}
+                            <i className="fa-regular fa-building text-[#027b7a] text-lg" />{" "}
+                          </div>{" "}
+                          <div>
+                            {" "}
+                            <h3 className="font-semibold text-gray-900 group-hover:text-[#027b7a] transition-colors">
+                              {" "}
+                              Business Growth & Corporate Advisory{" "}
+                            </h3>{" "}
+                            <p className="text-sm text-gray-500 mt-1">
+                              {" "}
+                              Legal support for sustainable business growth{" "}
+                            </p>{" "}
+                          </div>{" "}
+                        </div>{" "}
+                        <i className="fa-regular fa-arrow-right text-gray-400 group-hover:text-[#027b7a] group-hover:translate-x-1 transition-all" />{" "}
+                      </Link>{" "}
+                      {/* Strategic Representation */}{" "}
+                      <Link
+                        href="/about#strategic-representation"
+                        data-aos="fade-up"
+                        data-aos-duration="1100"
+                        scroll={false}
+                        className="group flex items-center justify-between gap-5 bg-white border border-gray-100 p-5 md:p-6 shadow-sm hover:shadow-md hover:border-[#027b7a]/30 transition-all duration-300"
+                      >
+                        {" "}
+                        <div className="flex items-center gap-4">
+                          {" "}
+                          <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#027b7a]/10 flex items-center justify-center">
+                            {" "}
+                            <i className="fa-regular fa-scale-balanced text-[#027b7a] text-lg" />{" "}
+                          </div>{" "}
+                          <div>
+                            {" "}
+                            <h3 className="font-semibold text-gray-900 group-hover:text-[#027b7a] transition-colors">
+                              {" "}
+                              Strategic Representation{" "}
+                            </h3>{" "}
+                            <p className="text-sm text-gray-500 mt-1">
+                              {" "}
+                              Thoughtful advocacy when it matters most{" "}
+                            </p>{" "}
+                          </div>{" "}
+                        </div>{" "}
+                        <i className="fa-regular fa-arrow-right text-gray-400 group-hover:text-[#027b7a] group-hover:translate-x-1 transition-all" />{" "}
+                      </Link>{" "}
+                    </div>{" "}
                   </div>
 
                   {/* Right Column - Text */}
@@ -230,19 +329,20 @@ export default function Home() {
                       data-aos="fade-right"
                       data-aos-duration="900"
                     >
-                      Your case deserves personalized attention, and that's
-                      exactly what Astute Law Office offer. I will be your best
-                      legal advocates in the pursuit of justice.
+                      Your matter deserves personalized attention, and that is
+                      exactly what Astute Law Office provides. Every client
+                      receives dedicated legal support and strong advocacy in
+                      the pursuit of justice.
                     </p>
                     <p
                       className="text-gray-600 text-base m-0"
                       data-aos="fade-right"
                       data-aos-duration="1000"
                     >
-                      I know that every case is unique, and I tailor my approach
-                      to your <br className="hidden lg:inline" />
-                      specific circumstances, leveraging my legal expertise and
-                      courtroom.
+                      Every matter is unique, and the approach is tailored to
+                      each client's specific circumstances, drawing on legal
+                      expertise and experience to pursue the best possible
+                      outcome.
                     </p>
                     <div
                       className="mt-4"
@@ -277,10 +377,9 @@ export default function Home() {
               The Power of a Resilient Legal Strategy
             </h2>
             <p className="text-gray-600 text-base max-w-3xl">
-              The Firm offers legal services across several core practice
-              areas, with emphasis on strategic guidance, careful advocacy,
-              and practical solutions tailored to each client&apos;s
-              circumstances.
+              The Firm offers legal services across several core practice areas,
+              with emphasis on strategic guidance, careful advocacy, and
+              practical solutions tailored to each client&apos;s circumstances.
             </p>
           </div>
 
@@ -293,9 +392,20 @@ export default function Home() {
                   key={index}
                   className="relative shrink-0 w-80 h-80 rounded-none overflow-hidden shadow-md group cursor-pointer mr-3"
                 >
-                  {/* Icon background instead of image */}
+                  {/* Background image */}
+                  <div className="absolute inset-0">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover"
+                      sizes="320px"
+                    />
+                  </div>
+
+                  {/* Gradient overlay on top of image for readability + brand color */}
                   <div
-                    className={`w-full h-full bg-gradient-to-br ${service.gradient} flex items-center justify-center relative overflow-hidden`}
+                    className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-25 flex items-center justify-center`}
                   >
                     {/* Decorative circles for depth */}
                     <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full bg-white opacity-5" />
@@ -305,6 +415,7 @@ export default function Home() {
                     <service.icon className="w-20 h-20 text-white opacity-40 relative z-10" />
                   </div>
 
+                  {/* Bottom info panel — unchanged */}
                   <div
                     className="absolute bottom-0 left-0 right-0 mx-4 bg-white bg-opacity-90
       transition-all duration-500 my-5
@@ -389,13 +500,13 @@ export default function Home() {
           <div className="flex justify-center">
             <div className="max-w-2xl text-center">
               <h2 className="text-3xl! md:text-4xl! font-bold text-white mb-4 pro">
-                Ready to Fight for Your Rights?
+                Ready to Protect Your Rights and Interests?
               </h2>
 
               <p className="text-white/90 text-base md:text-lg mb-8">
-                With years of experience, I&apos;ve successfully defended
-                countless clients, securing their rights and helping them
-                navigate the legal system.
+                With years of experience, Astute Law Office provides adequate
+                representation and practical guidance to help clients navigate
+                complex legal challenges with confidence.
               </p>
 
               <a

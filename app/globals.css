@@ -12,6 +12,14 @@ body{
   font-style: normal;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+[id] {
+  scroll-margin-top: 100px;
+}
+
 .pro{
   font-family: 'Playfair Display', serif !important;
   font-optical-sizing: auto;

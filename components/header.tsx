@@ -946,6 +946,11 @@ export default function Header() {
                 </Link>
               </li> */}
               <li>
+                <Link className="hover:text-gray-900 text-gray-100 transition" href="/about#practice-areas" onClick={() => setMobileMenuOpen(false)}>
+                  Services
+                </Link>
+              </li>
+              <li>
                 <Link
                   className="hover:text-gray-900 text-gray-100 transition"
                   href="/contact"
@@ -1024,6 +1029,11 @@ export default function Header() {
                   Practice Areas
                 </Link>
               </li> */}
+              <li>
+                <Link href="/about#practice-areas" onClick={() => setMobileMenuOpen(false)}>
+                  Services
+                </Link>
+              </li>
               <li>
                 <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
                   Contact
