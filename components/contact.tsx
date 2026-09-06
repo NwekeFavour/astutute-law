@@ -74,8 +74,8 @@ export default function ContactSection() {
               <div>
                 <h4 className="font-semibold mb-1">Address</h4>
                 <p className="text-sm text-gray-600">
-                  301-231 Oak Park Blvd, <br />
-                  Oakville, ON L6H 7S8 
+                  55 Village Centre Place, <br />
+                  Suite 200, Mississauga, ON L4Z1V9, 
                 </p>
               </div>
             </div>
