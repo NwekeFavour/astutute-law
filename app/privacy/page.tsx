@@ -92,8 +92,7 @@ export default function PrivacyPage() {
                 Questions about your information?
               </p>
               <p>
-                Astute Law Office, 55 Village Centre Place, Suite 200,
-                Mississauga, ON L4Z1V9 &middot;{" "}
+                Astute Law Office, 55 Village Centre Place, Suite 200, Mississauga, ON L4Z1V9 &middot;{" "}
                 <a
                   href="mailto:info@astutelawoffice.com"
                   className="text-[#027b7a] font-medium hover:underline"
@@ -614,8 +613,7 @@ export default function PrivacyPage() {
                   <p>
                     The Firm maintain a file of your personal information for
                     the purposes described in this privacy policy. This file is
-                    accessible at Astute Law Office, 55 Village Centre Place,
-                    Suite 200, Mississauga, ON L4Z1V9. If you wish to request
+                    accessible at Astute Law Office, 55 Village Centre Place, Suite 200, Mississauga, ON L4Z1V9. If you wish to request
                     access to, or correction of, your personal information in
                     custody or control of Astute, please make your request in
                     writing to the Firm at the address below. The Firm may need
@@ -657,8 +655,7 @@ export default function PrivacyPage() {
                   <p>
                     If you have any questions, inquiries or complaints about the
                     Firm&apos;s personal information practices, please contact
-                    the Firm at Astute Law Office, 55 Village Centre Place,
-                    Suite 200, Mississauga, ON L4Z1V9, or via email at{" "}
+                    the Firm at Astute Law Office, 55 Village Centre Place, Suite 200, Mississauga, ON L4Z1V9 or via email at{" "}
                     <a
                       href="mailto:info@astutelawoffice.com"
                       className="text-[#027b7a] font-medium hover:underline"
