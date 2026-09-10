@@ -128,6 +128,7 @@ export default function Home() {
                     "Delivering Expert",
                     "Legal Support",
                   ],
+                  highlightIndex: 1,
                   sub: "Legal services are provided with diligence, careful preparation, and a strong commitment to professional standards, with a focus on delivering clear and practical legal guidance",
                 },
                 {
@@ -137,6 +138,7 @@ export default function Home() {
                     "Services, Practical",
                     "Guidance",
                   ],
+                  highlightIndex: 1,
                   sub: "Navigating legal issues can be challenging without clear and reliable guidance. Legal services are provided with attention to detail, thoughtful analysis, and a practical approach aimed at helping clients address their legal matters effectively.",
                 },
               ].map((slide, i) => (
@@ -157,12 +159,19 @@ export default function Home() {
                     <div className="absolute inset-0 flex items-center">
                       <div className="md:max-w-6xl w-full mx-auto px-6 lg:px-8">
                         <div className="max-w-2xl space-y-6">
-                          <h1 className="text-[40px]! md:text-[68px]! xl:text-[82px]! font-black leading-none tracking-tight text-white pro">
-                            <span className="block">{slide.heading[0]}</span>
-                            <span className="block text-[#4dd9d8]">
-                              {slide.heading[1]}
-                            </span>
-                            <span className="block">{slide.heading[2]}</span>
+                          <h1 className="text-[40px]! md:text-[50px]! xl:text-[62px]! font-black leading-none tracking-tight text-white pro">
+                            {slide.heading.map((line, idx) => (
+                              <span
+                                key={idx}
+                                className={`block ${
+                                  idx === slide.highlightIndex
+                                    ? "text-[#4dd9d8]"
+                                    : ""
+                                }`}
+                              >
+                                {line}
+                              </span>
+                            ))}
                           </h1>
                           <p className="text-white/75 text-base md:text-lg leading-relaxed">
                             {slide.sub}
@@ -217,109 +226,113 @@ export default function Home() {
                       </h2>{" "}
                       <p className="mt-5 text-gray-600 leading-relaxed max-w-xl">
                         {" "}
-                        At Astute Law Office, legal advice goes beyond explaining the law. Every matter is approached with careful attention to the circumstances, protection of legal interests, and practical strategies designed to achieve meaningful results.{" "}
+                        At Astute Law Office, legal advice goes beyond
+                        explaining the law. Every matter is approached with
+                        careful attention to the circumstances, protection of
+                        legal interests, and practical strategies designed to
+                        achieve meaningful results.{" "}
                       </p>{" "}
                     </div>{" "}
                     {/* Service Links */}{" "}
-                  <div className="space-y-4">
-  {" "}
-  {/* Practical Legal Advice */}{" "}
-  <Link
-    href="/about#practical-legal-advice"
-    data-aos="fade-up"
-    data-aos-duration="700"
-    scroll={false}
-    className="group flex items-center justify-between gap-5 bg-white border border-gray-100 p-5 md:p-6 shadow-sm hover:shadow-md hover:border-[#027b7a]/30 transition-all duration-300"
-  >
-    {" "}
-    <div className="flex items-center gap-4">
-      {" "}
-      <div className="relative flex-shrink-0 w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-[#0ea5a0] to-[#014f4d] flex items-center justify-center shadow-sm">
-        {" "}
-        <div className="absolute -top-3 -right-2 w-6 h-6 rounded-full bg-white/20" />{" "}
-        <div className="absolute top-1 -left-3 w-5 h-5 rounded-full bg-white/10" />{" "}
-        <div className="absolute -bottom-4 right-1 w-8 h-8 rounded-full bg-white/10" />{" "}
-        <i className="fa-regular fa-lightbulb text-white text-lg relative z-10" />{" "}
-      </div>{" "}
-      <div>
-        {" "}
-        <h3 className="font-semibold text-gray-900 group-hover:text-[#027b7a] transition-colors">
-          {" "}
-          Practical Legal Advice{" "}
-        </h3>{" "}
-        <p className="text-sm text-gray-500 mt-1">
-          {" "}
-          Clear guidance for informed decisions{" "}
-        </p>{" "}
-      </div>{" "}
-    </div>{" "}
-    <i className="fa-regular fa-arrow-right text-gray-400 group-hover:text-[#027b7a] group-hover:translate-x-1 transition-all" />{" "}
-  </Link>{" "}
-  {/* Business Growth */}{" "}
-  <Link
-    href="/about#business-growth-corporate-advisory"
-    data-aos="fade-up"
-    data-aos-duration="900"
-    scroll={false}
-    className="group flex items-center justify-between gap-5 bg-white border border-gray-100 p-5 md:p-6 shadow-sm hover:shadow-md hover:border-[#027b7a]/30 transition-all duration-300"
-  >
-    {" "}
-    <div className="flex items-center gap-4">
-      {" "}
-      <div className="relative flex-shrink-0 w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-[#2f6690] to-[#123a54] flex items-center justify-center shadow-sm">
-        {" "}
-        <div className="absolute -top-3 -right-2 w-6 h-6 rounded-full bg-white/20" />{" "}
-        <div className="absolute top-1 -left-3 w-5 h-5 rounded-full bg-white/10" />{" "}
-        <div className="absolute -bottom-4 right-1 w-8 h-8 rounded-full bg-white/10" />{" "}
-        <i className="fa-regular fa-building text-white text-lg relative z-10" />{" "}
-      </div>{" "}
-      <div>
-        {" "}
-        <h3 className="font-semibold text-gray-900 group-hover:text-[#027b7a] transition-colors">
-          {" "}
-          Business Growth & Corporate Advisory{" "}
-        </h3>{" "}
-        <p className="text-sm text-gray-500 mt-1">
-          {" "}
-          Legal support for sustainable business growth{" "}
-        </p>{" "}
-      </div>{" "}
-    </div>{" "}
-    <i className="fa-regular fa-arrow-right text-gray-400 group-hover:text-[#027b7a] group-hover:translate-x-1 transition-all" />{" "}
-  </Link>{" "}
-  {/* Strategic Representation */}{" "}
-  <Link
-    href="/about#strategic-representation"
-    data-aos="fade-up"
-    data-aos-duration="1100"
-    scroll={false}
-    className="group flex items-center justify-between gap-5 bg-white border border-gray-100 p-5 md:p-6 shadow-sm hover:shadow-md hover:border-[#027b7a]/30 transition-all duration-300"
-  >
-    {" "}
-    <div className="flex items-center gap-4">
-      {" "}
-      <div className="relative flex-shrink-0 w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-[#8b5cf6] to-[#4c1d95] flex items-center justify-center shadow-sm">
-        {" "}
-        <div className="absolute -top-3 -right-2 w-6 h-6 rounded-full bg-white/20" />{" "}
-        <div className="absolute top-1 -left-3 w-5 h-5 rounded-full bg-white/10" />{" "}
-        <div className="absolute -bottom-4 right-1 w-8 h-8 rounded-full bg-white/10" />{" "}
-        <i className="fa-regular fa-scale-balanced text-white text-lg relative z-10" />{" "}
-      </div>{" "}
-      <div>
-        {" "}
-        <h3 className="font-semibold text-gray-900 group-hover:text-[#027b7a] transition-colors">
-          {" "}
-          Strategic Representation{" "}
-        </h3>{" "}
-        <p className="text-sm text-gray-500 mt-1">
-          {" "}
-          Thoughtful advocacy when it matters most{" "}
-        </p>{" "}
-      </div>{" "}
-    </div>{" "}
-    <i className="fa-regular fa-arrow-right text-gray-400 group-hover:text-[#027b7a] group-hover:translate-x-1 transition-all" />{" "}
-  </Link>{" "}
-</div>
+                    <div className="space-y-4">
+                      {" "}
+                      {/* Practical Legal Advice */}{" "}
+                      <Link
+                        href="/about#practical-legal-advice"
+                        data-aos="fade-up"
+                        data-aos-duration="700"
+                        scroll={false}
+                        className="group flex items-center justify-between gap-5 bg-white border border-gray-100 p-5 md:p-6 shadow-sm hover:shadow-md hover:border-[#027b7a]/30 transition-all duration-300"
+                      >
+                        {" "}
+                        <div className="flex items-center gap-4">
+                          {" "}
+                          <div className="relative flex-shrink-0 w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-[#0ea5a0] to-[#014f4d] flex items-center justify-center shadow-sm">
+                            {" "}
+                            <div className="absolute -top-3 -right-2 w-6 h-6 rounded-full bg-white/20" />{" "}
+                            <div className="absolute top-1 -left-3 w-5 h-5 rounded-full bg-white/10" />{" "}
+                            <div className="absolute -bottom-4 right-1 w-8 h-8 rounded-full bg-white/10" />{" "}
+                            <i className="fa-regular fa-lightbulb text-white text-lg relative z-10" />{" "}
+                          </div>{" "}
+                          <div>
+                            {" "}
+                            <h3 className="font-semibold text-gray-900 group-hover:text-[#027b7a] transition-colors">
+                              {" "}
+                              Practical Legal Advice{" "}
+                            </h3>{" "}
+                            <p className="text-sm text-gray-500 mt-1">
+                              {" "}
+                              Clear guidance for informed decisions{" "}
+                            </p>{" "}
+                          </div>{" "}
+                        </div>{" "}
+                        <i className="fa-regular fa-arrow-right text-gray-400 group-hover:text-[#027b7a] group-hover:translate-x-1 transition-all" />{" "}
+                      </Link>{" "}
+                      {/* Business Growth */}{" "}
+                      <Link
+                        href="/about#business-growth-corporate-advisory"
+                        data-aos="fade-up"
+                        data-aos-duration="900"
+                        scroll={false}
+                        className="group flex items-center justify-between gap-5 bg-white border border-gray-100 p-5 md:p-6 shadow-sm hover:shadow-md hover:border-[#027b7a]/30 transition-all duration-300"
+                      >
+                        {" "}
+                        <div className="flex items-center gap-4">
+                          {" "}
+                          <div className="relative flex-shrink-0 w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-[#2f6690] to-[#123a54] flex items-center justify-center shadow-sm">
+                            {" "}
+                            <div className="absolute -top-3 -right-2 w-6 h-6 rounded-full bg-white/20" />{" "}
+                            <div className="absolute top-1 -left-3 w-5 h-5 rounded-full bg-white/10" />{" "}
+                            <div className="absolute -bottom-4 right-1 w-8 h-8 rounded-full bg-white/10" />{" "}
+                            <i className="fa-regular fa-building text-white text-lg relative z-10" />{" "}
+                          </div>{" "}
+                          <div>
+                            {" "}
+                            <h3 className="font-semibold text-gray-900 group-hover:text-[#027b7a] transition-colors">
+                              {" "}
+                              Business Growth & Corporate Advisory{" "}
+                            </h3>{" "}
+                            <p className="text-sm text-gray-500 mt-1">
+                              {" "}
+                              Legal support for sustainable business growth{" "}
+                            </p>{" "}
+                          </div>{" "}
+                        </div>{" "}
+                        <i className="fa-regular fa-arrow-right text-gray-400 group-hover:text-[#027b7a] group-hover:translate-x-1 transition-all" />{" "}
+                      </Link>{" "}
+                      {/* Strategic Representation */}{" "}
+                      <Link
+                        href="/about#strategic-representation"
+                        data-aos="fade-up"
+                        data-aos-duration="1100"
+                        scroll={false}
+                        className="group flex items-center justify-between gap-5 bg-white border border-gray-100 p-5 md:p-6 shadow-sm hover:shadow-md hover:border-[#027b7a]/30 transition-all duration-300"
+                      >
+                        {" "}
+                        <div className="flex items-center gap-4">
+                          {" "}
+                          <div className="relative flex-shrink-0 w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-[#8b5cf6] to-[#4c1d95] flex items-center justify-center shadow-sm">
+                            {" "}
+                            <div className="absolute -top-3 -right-2 w-6 h-6 rounded-full bg-white/20" />{" "}
+                            <div className="absolute top-1 -left-3 w-5 h-5 rounded-full bg-white/10" />{" "}
+                            <div className="absolute -bottom-4 right-1 w-8 h-8 rounded-full bg-white/10" />{" "}
+                            <i className="fa-regular fa-scale-balanced text-white text-lg relative z-10" />{" "}
+                          </div>{" "}
+                          <div>
+                            {" "}
+                            <h3 className="font-semibold text-gray-900 group-hover:text-[#027b7a] transition-colors">
+                              {" "}
+                              Strategic Representation{" "}
+                            </h3>{" "}
+                            <p className="text-sm text-gray-500 mt-1">
+                              {" "}
+                              Thoughtful advocacy when it matters most{" "}
+                            </p>{" "}
+                          </div>{" "}
+                        </div>{" "}
+                        <i className="fa-regular fa-arrow-right text-gray-400 group-hover:text-[#027b7a] group-hover:translate-x-1 transition-all" />{" "}
+                      </Link>{" "}
+                    </div>
                   </div>
 
                   {/* Right Column - Text */}
