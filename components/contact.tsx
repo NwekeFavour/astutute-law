@@ -102,9 +102,7 @@ export default function ContactSection() {
                 <h4 className="font-semibold mb-2">Email</h4>
                 <div className="space-y-2.5">
                   <div>
-                    <p className="text-xs text-gray-400 uppercase tracking-wide mb-0.5">
-                      General Inquiries
-                    </p>
+                    
                     <a
                       href="mailto:info@astutelawoffice.com"
                       className="text-sm text-gray-600 hover:text-[#027b7a] hover:underline"
