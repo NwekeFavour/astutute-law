@@ -95,6 +95,7 @@ export default function ContactSection() {
               <div>
                 <h4 className="font-semibold mb-1">Email</h4>
                 <a href="mailto:info@astutelawoffice.com" className="text-sm text-gray-600">info@astutelawoffice.com</a>
+                <a href="mailto:taiwoade-lawal@astutelawoffice.com" className="text-sm text-gray-600">taiwoade-lawal@astutelawoffice.com</a>
               </div>
             </div>
 

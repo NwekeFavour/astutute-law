@@ -123,7 +123,8 @@ export default function Home() {
                 {
                   img: PeraOne,
                   heading: [
-                    "Committed To",
+                    "Astute Law Office",
+                    "is Committed To",
                     "Delivering Expert",
                     "Legal Support",
                   ],
@@ -156,7 +157,7 @@ export default function Home() {
                     <div className="absolute inset-0 flex items-center">
                       <div className="md:max-w-6xl w-full mx-auto px-6 lg:px-8">
                         <div className="max-w-2xl space-y-6">
-                          <h1 className="text-[48px]! md:text-[68px]! xl:text-[82px]! font-black leading-none tracking-tight text-white pro">
+                          <h1 className="text-[40px]! md:text-[68px]! xl:text-[82px]! font-black leading-none tracking-tight text-white pro">
                             <span className="block">{slide.heading[0]}</span>
                             <span className="block text-[#4dd9d8]">
                               {slide.heading[1]}
