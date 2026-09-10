@@ -35,13 +35,14 @@ type Slot = {
 type AvailableSlots = { [date: string]: Slot[] };
 type Step = "details" | "otp" | "slots" | "payment" | "success";
 const PAYMENT_ENABLED = false;
+const OTP_ENABLED = false;
 // ─────────────────────────────────────────────
 // Step Indicator
 // ─────────────────────────────────────────────
 function StepIndicator({ current }: { current: Step }) {
   const steps: { key: Step; label: string }[] = [
     { key: "details", label: "Your Details" },
-    { key: "otp", label: "Verify Email" },
+    ...(OTP_ENABLED ? [{ key: "otp" as Step, label: "Verify Email" }] : []),
     { key: "slots", label: "Pick a Slot" },
     ...(PAYMENT_ENABLED ? [{ key: "payment" as Step, label: "Payment" }] : []),
     { key: "success", label: "Confirmed" },
@@ -296,6 +297,25 @@ function BookingFlow({ onClose }: { onClose: () => void }) {
   // Step 1 → send OTP → go to OTP step
   const handleDetailsSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!OTP_ENABLED) {
+      // Skip verification entirely — go straight to slots
+      setLoadingSlots(true);
+      try {
+        const slotsRes = await fetch(`${API}/available-slots?days=14`);
+        if (!slotsRes.ok) throw new Error("Failed to fetch slots");
+        const slotsData = await slotsRes.json();
+        setAvailableSlots(slotsData.availableSlots || {});
+        setStep("slots");
+      } catch (err: any) {
+        toast.error(err.message || "Failed to load available times.");
+      } finally {
+        setLoadingSlots(false);
+      }
+      return;
+    }
+
+    // Existing OTP flow (unchanged) runs only if OTP_ENABLED
     setOtpLoading(true);
     setOtpError("");
     setOtpValue("");
@@ -315,7 +335,6 @@ function BookingFlow({ onClose }: { onClose: () => void }) {
       setOtpLoading(false);
     }
   };
-
   // Step 2 → verify OTP → fetch slots → go to slots step
   const verifyOtp = async () => {
     if (otpValue.length !== 6) return;
@@ -695,7 +714,7 @@ function BookingFlow({ onClose }: { onClose: () => void }) {
         <div className="max-w-2xl mx-auto">
           <div className="flex items-center gap-3 mb-6">
             <button
-              onClick={() => setStep("otp")}
+              onClick={() => setStep(OTP_ENABLED ? "otp" : "details")}
               className="text-sm text-gray-500 hover:text-gray-800 flex items-center gap-1"
             >
               ← Back
@@ -908,7 +927,10 @@ export default function Header() {
       <div className="container mx-auto px-4">
         {/* Desktop */}
         <div className="hidden lg:flex items-center justify-between h-20">
-          <Link href="/" className="text-2xl flex items-center justify-center font-bold text-gray-100">
+          <Link
+            href="/"
+            className="text-2xl flex items-center justify-center font-bold text-gray-100"
+          >
             <Image src={Logo7} alt="Law-Firm-Logo" className="h-35 w-35 " />
           </Link>
           <nav>
@@ -927,7 +949,7 @@ export default function Header() {
                   href="/about"
                 >
                   The Firm
-                </Link>                
+                </Link>
               </li>
               {/* <li>
                 <Link
@@ -946,7 +968,11 @@ export default function Header() {
                 </Link>
               </li> */}
               <li>
-                <Link className="hover:text-gray-900 text-gray-100 transition" href="/about#practice-areas" onClick={() => setMobileMenuOpen(false)}>
+                <Link
+                  className="hover:text-gray-900 text-gray-100 transition"
+                  href="/about#practice-areas"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
                   Services
                 </Link>
               </li>
@@ -970,7 +996,10 @@ export default function Header() {
 
         {/* Mobile */}
         <div className="flex lg:hidden items-center justify-between h-16">
-          <Link href="/" className="text-2xl flex items-center justify-center font-bold text-gray-100">
+          <Link
+            href="/"
+            className="text-2xl flex items-center justify-center font-bold text-gray-100"
+          >
             <Image src={Logo7} alt="Law-Firm-Logo" className="h-24 w-30 " />
           </Link>
           <div className="flex items-center gap-2">
@@ -1030,7 +1059,10 @@ export default function Header() {
                 </Link>
               </li> */}
               <li>
-                <Link href="/about#practice-areas" onClick={() => setMobileMenuOpen(false)}>
+                <Link
+                  href="/about#practice-areas"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
                   Services
                 </Link>
               </li>
