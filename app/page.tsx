@@ -216,103 +216,109 @@ export default function Home() {
                       </h2>{" "}
                       <p className="mt-5 text-gray-600 leading-relaxed max-w-xl">
                         {" "}
-                        At Astute Law Office, legal advice goes beyond simply
-                        explaining the law. We focus on understanding your
-                        circumstances, protecting your interests, and developing
-                        practical strategies that move your matter forward.{" "}
+                        At Astute Law Office, legal advice goes beyond explaining the law. Every matter is approached with careful attention to the circumstances, protection of legal interests, and practical strategies designed to achieve meaningful results.{" "}
                       </p>{" "}
                     </div>{" "}
                     {/* Service Links */}{" "}
-                    <div className="space-y-4">
-                      {" "}
-                      {/* Practical Legal Advice */}{" "}
-                      <Link
-                        href="/about#practical-legal-advice"
-                        data-aos="fade-up"
-                        data-aos-duration="700"
-                        scroll={false}
-                        className="group flex items-center justify-between gap-5 bg-white border border-gray-100 p-5 md:p-6 shadow-sm hover:shadow-md hover:border-[#027b7a]/30 transition-all duration-300"
-                      >
-                        {" "}
-                        <div className="flex items-center gap-4">
-                          {" "}
-                          <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#027b7a]/10 flex items-center justify-center">
-                            {" "}
-                            <i className="fa-regular fa-lightbulb text-[#027b7a] text-lg" />{" "}
-                          </div>{" "}
-                          <div>
-                            {" "}
-                            <h3 className="font-semibold text-gray-900 group-hover:text-[#027b7a] transition-colors">
-                              {" "}
-                              Practical Legal Advice{" "}
-                            </h3>{" "}
-                            <p className="text-sm text-gray-500 mt-1">
-                              {" "}
-                              Clear guidance for informed decisions{" "}
-                            </p>{" "}
-                          </div>{" "}
-                        </div>{" "}
-                        <i className="fa-regular fa-arrow-right text-gray-400 group-hover:text-[#027b7a] group-hover:translate-x-1 transition-all" />{" "}
-                      </Link>{" "}
-                      {/* Business Growth */}{" "}
-                      <Link
-                        href="/about#business-growth-corporate-advisory"
-                        data-aos="fade-up"
-                        data-aos-duration="900"
-                        scroll={false}
-                        className="group flex items-center justify-between gap-5 bg-white border border-gray-100 p-5 md:p-6 shadow-sm hover:shadow-md hover:border-[#027b7a]/30 transition-all duration-300"
-                      >
-                        {" "}
-                        <div className="flex items-center gap-4">
-                          {" "}
-                          <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#027b7a]/10 flex items-center justify-center">
-                            {" "}
-                            <i className="fa-regular fa-building text-[#027b7a] text-lg" />{" "}
-                          </div>{" "}
-                          <div>
-                            {" "}
-                            <h3 className="font-semibold text-gray-900 group-hover:text-[#027b7a] transition-colors">
-                              {" "}
-                              Business Growth & Corporate Advisory{" "}
-                            </h3>{" "}
-                            <p className="text-sm text-gray-500 mt-1">
-                              {" "}
-                              Legal support for sustainable business growth{" "}
-                            </p>{" "}
-                          </div>{" "}
-                        </div>{" "}
-                        <i className="fa-regular fa-arrow-right text-gray-400 group-hover:text-[#027b7a] group-hover:translate-x-1 transition-all" />{" "}
-                      </Link>{" "}
-                      {/* Strategic Representation */}{" "}
-                      <Link
-                        href="/about#strategic-representation"
-                        data-aos="fade-up"
-                        data-aos-duration="1100"
-                        scroll={false}
-                        className="group flex items-center justify-between gap-5 bg-white border border-gray-100 p-5 md:p-6 shadow-sm hover:shadow-md hover:border-[#027b7a]/30 transition-all duration-300"
-                      >
-                        {" "}
-                        <div className="flex items-center gap-4">
-                          {" "}
-                          <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#027b7a]/10 flex items-center justify-center">
-                            {" "}
-                            <i className="fa-regular fa-scale-balanced text-[#027b7a] text-lg" />{" "}
-                          </div>{" "}
-                          <div>
-                            {" "}
-                            <h3 className="font-semibold text-gray-900 group-hover:text-[#027b7a] transition-colors">
-                              {" "}
-                              Strategic Representation{" "}
-                            </h3>{" "}
-                            <p className="text-sm text-gray-500 mt-1">
-                              {" "}
-                              Thoughtful advocacy when it matters most{" "}
-                            </p>{" "}
-                          </div>{" "}
-                        </div>{" "}
-                        <i className="fa-regular fa-arrow-right text-gray-400 group-hover:text-[#027b7a] group-hover:translate-x-1 transition-all" />{" "}
-                      </Link>{" "}
-                    </div>{" "}
+                  <div className="space-y-4">
+  {" "}
+  {/* Practical Legal Advice */}{" "}
+  <Link
+    href="/about#practical-legal-advice"
+    data-aos="fade-up"
+    data-aos-duration="700"
+    scroll={false}
+    className="group flex items-center justify-between gap-5 bg-white border border-gray-100 p-5 md:p-6 shadow-sm hover:shadow-md hover:border-[#027b7a]/30 transition-all duration-300"
+  >
+    {" "}
+    <div className="flex items-center gap-4">
+      {" "}
+      <div className="relative flex-shrink-0 w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-[#0ea5a0] to-[#014f4d] flex items-center justify-center shadow-sm">
+        {" "}
+        <div className="absolute -top-3 -right-2 w-6 h-6 rounded-full bg-white/20" />{" "}
+        <div className="absolute top-1 -left-3 w-5 h-5 rounded-full bg-white/10" />{" "}
+        <div className="absolute -bottom-4 right-1 w-8 h-8 rounded-full bg-white/10" />{" "}
+        <i className="fa-regular fa-lightbulb text-white text-lg relative z-10" />{" "}
+      </div>{" "}
+      <div>
+        {" "}
+        <h3 className="font-semibold text-gray-900 group-hover:text-[#027b7a] transition-colors">
+          {" "}
+          Practical Legal Advice{" "}
+        </h3>{" "}
+        <p className="text-sm text-gray-500 mt-1">
+          {" "}
+          Clear guidance for informed decisions{" "}
+        </p>{" "}
+      </div>{" "}
+    </div>{" "}
+    <i className="fa-regular fa-arrow-right text-gray-400 group-hover:text-[#027b7a] group-hover:translate-x-1 transition-all" />{" "}
+  </Link>{" "}
+  {/* Business Growth */}{" "}
+  <Link
+    href="/about#business-growth-corporate-advisory"
+    data-aos="fade-up"
+    data-aos-duration="900"
+    scroll={false}
+    className="group flex items-center justify-between gap-5 bg-white border border-gray-100 p-5 md:p-6 shadow-sm hover:shadow-md hover:border-[#027b7a]/30 transition-all duration-300"
+  >
+    {" "}
+    <div className="flex items-center gap-4">
+      {" "}
+      <div className="relative flex-shrink-0 w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-[#2f6690] to-[#123a54] flex items-center justify-center shadow-sm">
+        {" "}
+        <div className="absolute -top-3 -right-2 w-6 h-6 rounded-full bg-white/20" />{" "}
+        <div className="absolute top-1 -left-3 w-5 h-5 rounded-full bg-white/10" />{" "}
+        <div className="absolute -bottom-4 right-1 w-8 h-8 rounded-full bg-white/10" />{" "}
+        <i className="fa-regular fa-building text-white text-lg relative z-10" />{" "}
+      </div>{" "}
+      <div>
+        {" "}
+        <h3 className="font-semibold text-gray-900 group-hover:text-[#027b7a] transition-colors">
+          {" "}
+          Business Growth & Corporate Advisory{" "}
+        </h3>{" "}
+        <p className="text-sm text-gray-500 mt-1">
+          {" "}
+          Legal support for sustainable business growth{" "}
+        </p>{" "}
+      </div>{" "}
+    </div>{" "}
+    <i className="fa-regular fa-arrow-right text-gray-400 group-hover:text-[#027b7a] group-hover:translate-x-1 transition-all" />{" "}
+  </Link>{" "}
+  {/* Strategic Representation */}{" "}
+  <Link
+    href="/about#strategic-representation"
+    data-aos="fade-up"
+    data-aos-duration="1100"
+    scroll={false}
+    className="group flex items-center justify-between gap-5 bg-white border border-gray-100 p-5 md:p-6 shadow-sm hover:shadow-md hover:border-[#027b7a]/30 transition-all duration-300"
+  >
+    {" "}
+    <div className="flex items-center gap-4">
+      {" "}
+      <div className="relative flex-shrink-0 w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-[#8b5cf6] to-[#4c1d95] flex items-center justify-center shadow-sm">
+        {" "}
+        <div className="absolute -top-3 -right-2 w-6 h-6 rounded-full bg-white/20" />{" "}
+        <div className="absolute top-1 -left-3 w-5 h-5 rounded-full bg-white/10" />{" "}
+        <div className="absolute -bottom-4 right-1 w-8 h-8 rounded-full bg-white/10" />{" "}
+        <i className="fa-regular fa-scale-balanced text-white text-lg relative z-10" />{" "}
+      </div>{" "}
+      <div>
+        {" "}
+        <h3 className="font-semibold text-gray-900 group-hover:text-[#027b7a] transition-colors">
+          {" "}
+          Strategic Representation{" "}
+        </h3>{" "}
+        <p className="text-sm text-gray-500 mt-1">
+          {" "}
+          Thoughtful advocacy when it matters most{" "}
+        </p>{" "}
+      </div>{" "}
+    </div>{" "}
+    <i className="fa-regular fa-arrow-right text-gray-400 group-hover:text-[#027b7a] group-hover:translate-x-1 transition-all" />{" "}
+  </Link>{" "}
+</div>
                   </div>
 
                   {/* Right Column - Text */}

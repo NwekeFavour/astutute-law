@@ -85,7 +85,7 @@ export default function ContactSection() {
               <Phone className="w-6 h-6 text-black" />
               <div>
                 <h4 className="font-semibold mb-1">Call or text</h4>
-                <p className="text-sm text-gray-600">902 5806 770</p>
+                <a  href="tel:+9057182455" className="text-sm text-gray-600">905 718 2455</a>
               </div>
             </div>
 
@@ -94,7 +94,7 @@ export default function ContactSection() {
               <Mail className="w-6 h-6 text-black" />
               <div>
                 <h4 className="font-semibold mb-1">Email</h4>
-                <p className="text-sm text-gray-600">taiwoade-lawal@astutelawoffice.com</p>
+                <a href="mailto:info@astutelawoffice.com" className="text-sm text-gray-600">info@astutelawoffice.com</a>
               </div>
             </div>
 

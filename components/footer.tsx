@@ -19,7 +19,7 @@ export default function Footer() {
                         className="h-40 w-40 mb-4"
                         />
                         <p className="text-sm leading-relaxed mb-6 text-gray-400">
-                        We are committed to delivering exceptional legal services through practical legal services and strategic representation. I help individuals and businesses navigate complex legal landscaped with clarity, precision, and confidence.
+                        Astute Law Office is committed to delivering exceptional legal services through practical advice and strategic representation, helping individuals and businesses navigate complex legal landscapes with clarity, precision, and confidence.
                         </p>
 
                         <div className="flex gap-4">

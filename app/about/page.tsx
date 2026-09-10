@@ -1,11 +1,11 @@
-"use client"
+"use client";
 import Image from "next/image";
 import Footer from "@/components/footer";
 import Lawyer from "@/public/assets/images/lawyer.jpeg";
 import { useEffect } from "react";
 
 export default function AboutPage() {
- useEffect(() => {
+  useEffect(() => {
     if (!window.location.hash) return;
 
     const id = window.location.hash.replace("#", "");
@@ -42,11 +42,13 @@ export default function AboutPage() {
     return () => cancelAnimationFrame(raf);
   }, []);
 
-
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <div data-aos="fade-down" className="bg-[#EDF7FF] text-center lg:pb-20 md:pb-18 pb-14 pt-20">
+      <div
+        data-aos="fade-down"
+        className="bg-[#EDF7FF] text-center lg:pb-20 md:pb-18 pb-14 pt-20"
+      >
         <p className="m-0 font-semibold lg:text-[60px] md:text-[55px] sm:text-[50px] text-[45px]">
           The Firm
         </p>
@@ -57,27 +59,39 @@ export default function AboutPage() {
       <div className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-14 items-start">
         {/* Left Text */}
         <div data-aos="fade-right" className="space-y-6">
-          <p className="text-[#027b7a] font-semibold mb-3">ABOUT ASTUTE LAW FIRM</p>
+          <p className="text-[#027b7a] font-semibold mb-3">
+            ABOUT ASTUTE LAW FIRM
+          </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
             Astute Law Office: Your Trusted Legal Partner
           </h2>
           <p className="text-gray-600 mb-5 leading-relaxed">
-           Astute Law Office is committed to delivering exceptional legal services through practical legal advice and strategic representation. Individuals and businesses are guided through complex legal landscapes with clarity, precision, and confidence.                                                                                      
-
-                                                                                                          
-
+            Astute Law Office is committed to delivering exceptional legal
+            services through practical legal advice and strategic
+            representation. Individuals and businesses are guided through
+            complex legal landscapes with clarity, precision, and confidence.
           </p>
 
           <p className="text-gray-600 leading-relaxed">
-            Astute Law Office recognizes that every client's objectives are unique. For that reason, legal solutions are carefully tailored to align with each client's goals, protect their interests, and position them for sustainable growth while remaining fully complaint with applicable regulatory standards.   
+            Astute Law Office recognizes that every client's objectives are
+            unique. For that reason, legal solutions are carefully tailored to
+            align with each client's goals, protect their interests, and
+            position them for sustainable growth while remaining fully complaint
+            with applicable regulatory standards.
           </p>
           <p className="text-gray-600 leading-relaxed">
-            From individuals to businesses, Astute Law Office works closely with clients to understand their needs, safeguard their interests, and achieve meaningful results through ethical and strategic legal practice.
+            From individuals to businesses, Astute Law Office works closely with
+            clients to understand their needs, safeguard their interests, and
+            achieve meaningful results through ethical and strategic legal
+            practice.
           </p>
         </div>
 
         {/* Right Image Placeholder */}
-        <div data-aos="fade-left" className="w-full max-w-md aspect-[4/5] relative mx-auto rounded-xl overflow-hidden bg-gray-100">
+        <div
+          data-aos="fade-left"
+          className="w-full max-w-md aspect-[4/5] relative mx-auto rounded-xl overflow-hidden bg-gray-100"
+        >
           <Image
             src={Lawyer}
             alt="Astute Professional"
@@ -103,79 +117,76 @@ export default function AboutPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-10">
+            {/* Practical Legal Advice */}
+            <div
+              id="practical-legal-advice"
+              data-aos="fade-up"
+              data-aos-delay="100"
+              className="scroll-mt-28"
+            >
+              <h3 className="text-xl font-semibold mb-3 text-[#027b7a]">
+                Practical Legal Advice
+              </h3>
 
-  {/* Practical Legal Advice */}
-  <div
-    id="practical-legal-advice"
-    data-aos="fade-up"
-    data-aos-delay="100"
-    className="scroll-mt-28"
-  >
-    <h3 className="text-xl font-semibold mb-3 text-[#027b7a]">
-      Practical Legal Advice
-    </h3>
+              <p className="text-gray-600 leading-relaxed">
+                Astute Law Office provides legal guidance that is clear,
+                actionable, and focused on real results. Complex laws and
+                regulations are translated into practical strategies, empowering
+                clients to make informed decisions and confidently navigate
+                their legal matters.
+              </p>
+            </div>
 
-    <p className="text-gray-600 leading-relaxed">
-      Astute Law Office provides legal guidance that is clear, actionable,
-      and focused on real results. Complex laws and regulations are
-      translated into practical strategies, empowering clients to make
-      informed decisions and confidently navigate their legal matters.
-    </p>
-  </div>
+            {/* Strategic Representation */}
+            <div
+              id="strategic-representation"
+              data-aos="fade-up"
+              data-aos-delay="100"
+              className="scroll-mt-28"
+            >
+              <h3 className="text-xl font-semibold mb-3 text-[#027b7a]">
+                Strategic Representation
+              </h3>
 
-  {/* Strategic Representation */}
-  <div
-    id="strategic-representation"
-    data-aos="fade-up"
-    data-aos-delay="100"
-    className="scroll-mt-28"
-  >
-    <h3 className="text-xl font-semibold mb-3 text-[#027b7a]">
-      Strategic Representation
-    </h3>
+              <p className="text-gray-600 leading-relaxed">
+                Whether in litigation, arbitration, or mediation, Astute Law
+                Office develops carefully considered legal strategies designed
+                to advance your interests and maximize your chances of success.
+              </p>
+            </div>
 
-    <p className="text-gray-600 leading-relaxed">
-      Whether in litigation, arbitration, or mediation, Astute Law Office
-      craft well-analyzed legal strategies that maximize your chances of
-      success while protecting your best interests.
-    </p>
-  </div>
+            {/* Business Growth & Corporate Advisory */}
+            <div
+              id="business-growth-corporate-advisory"
+              data-aos="fade-up"
+              data-aos-delay="100"
+              className="scroll-mt-28"
+            >
+              <h3 className="text-xl font-semibold mb-3 text-[#027b7a]">
+                Business Growth & Corporate Advisory
+              </h3>
 
-  {/* Business Growth & Corporate Advisory */}
-  <div
-    id="business-growth-corporate-advisory"
-    data-aos="fade-up"
-    data-aos-delay="100"
-    className="scroll-mt-28"
-  >
-    <h3 className="text-xl font-semibold mb-3 text-[#027b7a]">
-      Business Growth & Corporate Advisory
-    </h3>
+              <p className="text-gray-600 leading-relaxed">
+                The firm supports businesses in corporate governance, mergers &
+                acquisitions, and intellectual property protection to ensure
+                expansion remains sustainable and legally sound.
+              </p>
+            </div>
 
-    <p className="text-gray-600 leading-relaxed">
-      The firm support businesses in corporate governance, mergers &
-      acquisitions, and intellectual property protection to ensure
-      expansion remains sustainable and legally sound.
-    </p>
-  </div>
+            {/* Compliance & Regulatory Support */}
+            <div data-aos="fade-up" data-aos-delay="100">
+              <h3 className="text-xl font-semibold mb-3 text-[#027b7a]">
+                Compliance & Regulatory Support
+              </h3>
 
-  {/* Compliance & Regulatory Support */}
-  <div
-    data-aos="fade-up"
-    data-aos-delay="100"
-  >
-    <h3 className="text-xl font-semibold mb-3 text-[#027b7a]">
-      Compliance & Regulatory Support
-    </h3>
-
-    <p className="text-gray-600 leading-relaxed">
-      Astute Law Office proactive compliance services include risk
-      assessments, policy development, and business readiness evaluations
-      to safeguard your operations in an evolving regulatory environment.
-    </p>
-  </div>
-
-</div>
+              <p className="text-gray-600 leading-relaxed">
+                Astute Law Office proactive compliance services include risk
+                assessments, policy development, and business readiness
+                evaluations to safeguard your operations in an evolving
+                regulatory environment.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -203,7 +214,8 @@ export default function AboutPage() {
             <h3 className="text-xl font-semibold mb-3">Values</h3>
             <p className="text-gray-600 leading-relaxed">
               Integrity, accountability, professionalism, and unwavering
-              commitment to protecting Astute Law Office clients’ rights and interests.
+              commitment to protecting Astute Law Office clients’ rights and
+              interests.
             </p>
           </div>
         </div>
@@ -212,10 +224,12 @@ export default function AboutPage() {
       {/* Practice Areas */}
       <section className="py-24 bg-gradient-to-b from-white to-[#F8FAFC]">
         <div className="max-w-6xl mx-auto px-6">
-          
-
           <div className="grid md:grid-cols-4 gap-6" id="practice-areas">
-            <div data-aos="fade-up" data-aos-delay="100" className="group bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300">
+            <div
+              data-aos="fade-up"
+              data-aos-delay="100"
+              className="group bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300"
+            >
               <h3 className="text-xl font-semibold mb-6 text-[#027b7a]">
                 Family Law
               </h3>
@@ -244,7 +258,11 @@ export default function AboutPage() {
             </div>
 
             {/* Mental Health Law Card */}
-            <div data-aos="fade-up" data-aos-delay="200"  className="group bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300">
+            <div
+              data-aos="fade-up"
+              data-aos-delay="200"
+              className="group bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300"
+            >
               <h3 className="text-xl font-semibold mb-6 text-[#027b7a]">
                 Mental Health Law
               </h3>
@@ -269,7 +287,11 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div data-aos="fade-up" data-aos-delay="200"  className="group bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300">
+            <div
+              data-aos="fade-up"
+              data-aos-delay="200"
+              className="group bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300"
+            >
               <h3 className="text-xl font-semibold mb-6 text-[#027b7a]">
                 Business Law
               </h3>
@@ -283,7 +305,7 @@ export default function AboutPage() {
                   "Mergers & acquisitions",
                   "Shareholder & partnership matters",
                   "Commercial leasing & financing",
-                  "Business disputes & litigation"
+                  "Business disputes & litigation",
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <span className="mt-1 h-2 w-2 rounded-full bg-[#027b7a]" />
@@ -293,13 +315,18 @@ export default function AboutPage() {
               </div>
 
               <p className="mt-6 pt-6 border-t border-gray-100 text-gray-600 text-sm leading-relaxed">
-                The firm provides practical legal advice to help businesses navigate legal obligations, protect their interests, and make informed decisions with confidence.
+                The firm provides practical legal advice to help businesses
+                navigate legal obligations, protect their interests, and make
+                informed decisions with confidence.
               </p>
             </div>
 
-
             {/* Child Protection Card */}
-            <div data-aos="fade-up" data-aos-delay="300" className="group bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300">
+            <div
+              data-aos="fade-up"
+              data-aos-delay="300"
+              className="group bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300"
+            >
               <h3 className="text-xl font-semibold mb-6 text-[#027b7a]">
                 Child Protection
               </h3>
@@ -329,7 +356,7 @@ export default function AboutPage() {
       </section>
 
       {/* Why Choose Us */}
-      <div data-aos="fade-up"  className="bg-[#F8FAFC] py-20">
+      <div data-aos="fade-up" className="bg-[#F8FAFC] py-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -338,33 +365,44 @@ export default function AboutPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-10 text-center">
-            <div data-aos="zoom-in" data-aos-delay="100" className="bg-white p-8 rounded-xl shadow-sm">
+            <div
+              data-aos="zoom-in"
+              data-aos-delay="100"
+              className="bg-white p-8 rounded-xl shadow-sm"
+            >
               <h3 className="text-xl font-semibold mb-3">
                 Experienced Attorney
               </h3>
               <p className="text-gray-600">
-                Extensive legal knowledge across diverse areas,
-                ensuring depth, accuracy, and strategic foresight.
+                Extensive legal knowledge across diverse areas, ensuring depth,
+                accuracy, and strategic foresight.
               </p>
             </div>
 
-            <div data-aos="zoom-in" data-aos-delay="200" className="bg-white p-8 rounded-xl shadow-sm">
+            <div
+              data-aos="zoom-in"
+              data-aos-delay="200"
+              className="bg-white p-8 rounded-xl shadow-sm"
+            >
               <h3 className="text-xl font-semibold mb-3">
                 Client-Centric Approach
               </h3>
               <p className="text-gray-600">
-                The Firm  prioritize collaboration and transparency to deliver
+                The Firm prioritizes collaboration and transparency to deliver
                 solutions aligned with your objectives.
               </p>
             </div>
 
-            <div data-aos="zoom-in" data-aos-delay="300" className="bg-white p-8 rounded-xl shadow-sm">
+            <div
+              data-aos="zoom-in"
+              data-aos-delay="300"
+              className="bg-white p-8 rounded-xl shadow-sm"
+            >
               <h3 className="text-xl font-semibold mb-3">
                 Comprehensive Legal Support
               </h3>
               <p className="text-gray-600">
-                From litigation to compliance and corporate advisory, I cover
-                every aspect of your legal needs.
+                From litigation to compliance and corporate advisory, the firm covers every aspect of your legal needs.
               </p>
             </div>
           </div>
@@ -372,7 +410,7 @@ export default function AboutPage() {
       </div>
 
       {/* Call To Action */}
-      <div data-aos="fade-up"  className="py-20 text-center px-6">
+      <div data-aos="fade-up" className="py-20 text-center px-6">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
           Trusted Legal Support When You Need It Most
         </h2>
