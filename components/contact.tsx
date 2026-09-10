@@ -112,7 +112,7 @@ export default function ContactSection() {
                       info@astutelawoffice.com
                     </a>
                   </div>
-                  <div className="pt-2.5 border-t border-gray-100">
+                  <div className="pt-2.5 border-t border-gray-100">  
                     <a
                       href="mailto:taiwoade-lawal@astutelawoffice.com"
                       className="text-sm text-gray-600 hover:text-[#027b7a] hover:underline"
