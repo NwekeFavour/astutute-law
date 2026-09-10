@@ -1,12 +1,11 @@
-"use client"
-import { Phone, Mail, Clock } from "lucide-react";
+"use client";
+import { Phone, Mail, Clock, MapPin } from "lucide-react";
 
 export default function ContactSection() {
   return (
     <section className="bg-[#f6f3ee] py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 items-center lg:grid-cols-3 gap-8 bg-[#f6f3ee]">
-          
           {/* LEFT: FORM */}
           <div className="lg:col-span-2 bg-[#f6f3ee] p-4 sm:p-8 rounded-md">
             <h2 className="text-2xl font-semibold md:mb-10 mb-8 ">
@@ -67,38 +66,63 @@ export default function ContactSection() {
 
           {/* RIGHT: CONTACT INFO */}
           <div className="space-y-4">
-            
             {/* Address */}
-            <div className="bg-white p-6 rounded-md shadow-sm flex gap-4">
-              <Clock className="w-6 h-6 text-black" />
+            <a
+              href="https://maps.google.com/?q=55+Village+Centre+Place+Suite+200+Mississauga+ON+L4Z+1V9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white p-6 rounded-md shadow-sm flex gap-4 hover:shadow-md transition-shadow"
+            >
+              <MapPin className="w-6 h-6 text-black shrink-0" />
               <div>
                 <h4 className="font-semibold mb-1">Address</h4>
                 <p className="text-sm text-gray-600">
                   55 Village Centre Place, <br />
-                  Suite 200, Mississauga, ON L4Z1V9, 
+                  Suite 200, Mississauga, ON L4Z 1V9
                 </p>
               </div>
-            </div>
+            </a>
 
             {/* Phone */}
-            <div className="bg-white p-6 rounded-md shadow-sm flex gap-4">
-              <Phone className="w-6 h-6 text-black" />
+            <a
+              href="tel:+9057182455"
+              className="bg-white p-6 rounded-md shadow-sm flex gap-4 hover:shadow-md transition-shadow"
+            >
+              <Phone className="w-6 h-6 text-black shrink-0" />
               <div>
                 <h4 className="font-semibold mb-1">Call or text</h4>
-                <a  href="tel:+9057182455" className="text-sm text-gray-600">905 718 2455</a>
+                <p className="text-sm text-gray-600">905 718 2455</p>
               </div>
-            </div>
+            </a>
 
             {/* Email */}
             <div className="bg-white p-6 rounded-md shadow-sm flex gap-4">
-              <Mail className="w-6 h-6 text-black" />
-              <div>
-                <h4 className="font-semibold mb-1">Email</h4>
-                <a href="mailto:info@astutelawoffice.com" className="text-sm text-gray-600">info@astutelawoffice.com</a>
-                <a href="mailto:taiwoade-lawal@astutelawoffice.com" className="text-sm text-gray-600">taiwoade-lawal@astutelawoffice.com</a>
+              <Mail className="w-6 h-6 text-black shrink-0" />
+              <div className="w-full">
+                <h4 className="font-semibold mb-2">Email</h4>
+                <div className="space-y-2.5">
+                  <div>
+                    <p className="text-xs text-gray-400 uppercase tracking-wide mb-0.5">
+                      General Inquiries
+                    </p>
+                    <a
+                      href="mailto:info@astutelawoffice.com"
+                      className="text-sm text-gray-600 hover:text-[#027b7a] hover:underline"
+                    >
+                      info@astutelawoffice.com
+                    </a>
+                  </div>
+                  <div className="pt-2.5 border-t border-gray-100">
+                    <a
+                      href="mailto:taiwoade-lawal@astutelawoffice.com"
+                      className="text-sm text-gray-600 hover:text-[#027b7a] hover:underline"
+                    >
+                      taiwoade-lawal@astutelawoffice.com
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
