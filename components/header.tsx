@@ -909,7 +909,7 @@ export default function Header() {
         {/* Desktop */}
         <div className="hidden lg:flex items-center justify-between h-20">
           <Link href="/" className="text-2xl flex items-center justify-center font-bold text-gray-100">
-            <Image src={Logo7} alt="Law-Firm-Logo" className="h-24 w-30 " />
+            <Image src={Logo7} alt="Law-Firm-Logo" className="h-35 w-35 " />
           </Link>
           <nav>
             <ul className="flex items-center gap-8 font-normal">
