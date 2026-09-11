@@ -150,7 +150,7 @@ export default function Footer() {
 
                     {/* Bottom bar */}
                     <div className="border-t border-gray-200 py-6 flex flex-col md:flex-row sm:items-center justify-between text-sm text-gray-500">
-                    <p>© {new Date().getFullYear()} Astute Law Office Lawyer. All rights reserved.</p>
+                    <p>© {new Date().getFullYear()} Astute Law Office. All rights reserved.</p>
                     <div className="flex flex-wrap space-x-3"><Link href="/terms" className="hover:text-teal-400 transition mt-2 md:mt-0">
                         Terms Of Use
                     </Link>
